@@ -775,35 +775,54 @@ body {
         padding: 0 !important;
         background: #ffffff !important;
     }
-
     .navbar,
     .download-container,
     .site-footer {
         display: none !important;
     }
-
     .cv {
         border: 0 !important;
         border-radius: 0 !important;
         box-shadow: none !important;
     }
-      
-/* Foto opcional */
+} 
+
+/* ==========================================
+   FOTO OPCIONAL
+   ========================================== */
 .photo-container{
-    display:none; /* oculta por defecto */
-    text-align:center;
+    display:none;
     margin-bottom:18px;
 }
-.photo-container.show{ display:block; }
+.photo-container.show{ 
+    display:flex; 
+    justify-content:flex-start;
+    align-items:center;
+}
 .cv-photo{
-    width:110px;
-    height:110px;
+    width:95px;  /* más pequeña */
+    height:95px;
     border-radius:50%;
     object-fit:cover;
     border:3px solid #16a6a3;
     box-shadow:0 4px 12px rgba(0,0,0,.15);
 }
-/* Para el PDF con foto */
-.pdf-generating.with-photo .photo-container{ display:block !important; }
 
+/* Si la quieres al lado del nombre, usa esto */
+.header-inner.has-photo{
+    display:flex;
+    gap:20px;
+    align-items:center;
+}
+.header-inner.has-photo .header-text{
+    flex:1;
+}
+
+/* Para el PDF con foto */
+.pdf-generating.with-photo .photo-container{ 
+    display:block !important; 
+}
+.pdf-generating.with-photo .cv-photo{
+    width:85px !important;
+    height:85px !important;
 }
