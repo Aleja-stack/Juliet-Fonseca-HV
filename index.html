@@ -48,6 +48,9 @@
                     <div class="header-accent"></div>
 
                     <div class="header-inner">
+                        <div class="photo-container" id="photo-container">
+                            <img src="1019067911.jpg" alt="Foto de Juliet Fonseca" id="foto-perfil" class="cv-photo">
+                        </div>
                         <span class="eyebrow">
                             <i class="bi bi-terminal me-2"></i>TECNOLOGÍA · DESARROLLO WEB
                         </span>
@@ -263,18 +266,19 @@
 
             <!-- Botón visible solamente en la página web -->
             <div class="download-container">
-                <button id="btn-descargar" class="btn btn-download">
-                    <i class="bi bi-file-earmark-pdf me-2"></i>
-                    Descargar hoja de vida en PDF
-                </button>
-                <p id="estado-descarga" class="download-status" role="status"
-                   aria-live="polite"></p>
-                <p class="download-note">
-                    <i class="bi bi-info-circle me-1"></i>
-                    Tu documento estará listo para guardar y compartir.
-                </p>
+                <div class="form-check form-switch d-inline-flex align-items-center gap-2 mb-3">
+                    <input class="form-check-input" type="checkbox" id="check-foto">
+                    <label class="form-check-label" for="check-foto">Incluir foto en el PDF</label>
             </div>
-
+                
+                <br>
+                   <button id="btn-descargar" class="btn btn-download">
+                    <i class="bi bi-file-earmark-pdf me-2"></i>
+                        Descargar hoja de vida en PDF
+                    </button>
+                
+                <p id="estado-descarga" class="download-status"></p>
+            </div>
         </div>
     </main>
 
