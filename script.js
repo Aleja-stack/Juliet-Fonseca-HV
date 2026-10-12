@@ -6,9 +6,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const checkFoto = document.getElementById("check-foto");
     const photoContainer = document.getElementById("photo-container");
 
-    // Mostrar/ocultar foto en la web al marcar el switch
     checkFoto?.addEventListener("change", () => {
         photoContainer?.classList.toggle("show", checkFoto.checked);
+        document.querySelector(".header-inner")?.classList.toggle("has-photo", checkFoto.checked);
     });
 
     boton.addEventListener("click", async () => {
@@ -16,26 +16,28 @@ document.addEventListener("DOMContentLoaded", () => {
         if(conFoto) cv.classList.add("with-photo");
         
         boton.disabled = true;
-        estado.textContent = conFoto ? "Generando PDF con foto..." : "Generando PDF sin foto...";
+        estado.textContent = "Generando...";
         cv.classList.add("pdf-generating");
-        await new Promise(r => requestAnimationFrame(r));
+        await new Promise(r => setTimeout(r, 300));
 
         const opciones = {
-            margin:[8,8,8,8],
+            margin: 0,
             filename: conFoto ? "HojaDeVida-Juliet-Fonseca-CON-FOTO.pdf" : "HojaDeVida-Juliet-Fonseca.pdf",
-            image:{type:"jpeg", quality:0.98},
-            html2canvas:{scale:2, useCORS:true, backgroundColor:"#ffffff"},
-            jsPDF:{unit:"mm", format:"a4", orientation:"portrait"},
-            pagebreak:{mode:["css","legacy"], avoid:[".experience-item",".education-item"]}
+            image: { type: "jpeg", quality: 0.98 },
+            html2canvas: { scale: 2, useCORS: true, backgroundColor: "#ffffff", scrollY: 0 },
+            jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
+            pagebreak: { mode: ["css", "legacy"] }
         };
         try{
             await window.html2pdf().set(opciones).from(cv).save();
             estado.textContent = "¡Descargado!";
-        }catch(e){ estado.textContent="Error al generar PDF"; }
+        }catch(e){ 
+            console.error(e);
+            estado.textContent="Error al generar PDF"; 
+        }
         finally{
             cv.classList.remove("pdf-generating","with-photo");
             boton.disabled = false;
-            setTimeout(()=>estado.textContent="",3000);
         }
     });
 });
