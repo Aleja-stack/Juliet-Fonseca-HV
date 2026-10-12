@@ -1,5 +1,5 @@
 document.getElementById('btn-descargar').addEventListener('click', function () {
-  // Aquí llamamos la hoja donde está guardada tu hoja de vida
+  // Aquí llamamos la hoja donde está guardada la hoja de vida
   const hoja = document.getElementById('hoja-vida');
 
   // Configuración del PDF
