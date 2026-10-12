@@ -818,11 +818,29 @@ body {
     flex:1;
 }
 
-/* Para el PDF con foto */
-.pdf-generating.with-photo .photo-container{ 
-    display:block !important; 
+/* MODO PDF */
+.pdf-generating {
+    width: 794px !important;
+    max-width: 794px !important;
+    margin: 0 !important;
+    overflow: visible !important;
+    height: auto !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    background: #ffffff !important;
 }
-.pdf-generating.with-photo .cv-photo{
-    width:85px !important;
-    height:85px !important;
+
+.pdf-generating .cv,
+.pdf-generating .cv-content,
+.pdf-generating .cv-header {
+    overflow: visible !important;
+    height: auto !important;
+}
+
+.pdf-generating .cv-header {
+    background: #ffffff !important;
+    color: #17324d !important;
+    border-top: 4px solid #16a6a3 !important;
+    border-bottom: 1px solid #dce2e8 !important;
 }
