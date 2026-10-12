@@ -521,3 +521,26 @@ a {
         text-decoration: none !important;
     }
 }
+
+
+/* Ajustes específicos para generar el PDF */
+.pdf-generating {
+    width: 100% !important;
+    max-width: 794px !important;
+    margin: 0 auto !important;
+    box-shadow: none !important;
+}
+
+.pdf-generating .cv-header,
+.pdf-generating .cv-content,
+.pdf-generating .cv-footer {
+    break-inside: auto;
+    page-break-inside: auto;
+}
+
+.pdf-generating .experience-item,
+.pdf-generating .education-item {
+    break-inside: avoid;
+    page-break-inside: avoid;
+}
+
