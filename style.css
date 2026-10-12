@@ -1,321 +1,523 @@
-        :root {
-            --color-principal: #243447;
-            --color-acento: #287a78;
-            --color-texto: #303944;
-            --color-secundario: #5c6875;
-            --color-borde: #d9e0e6;
-            --color-fondo: #f2f4f6;
-        }
+       
+/* =========================================
+   Estilos generales del CV
+   ========================================= */
 
-        * {
-            box-sizing: border-box;
-        }
+:root {
+    --color-primary: #243447;
+    --color-accent: #287a78;
+    --color-text: #303944;
+    --color-muted: #5d6875;
+    --color-border: #dce2e8;
+    --color-soft: #edf5f4;
+    --color-page: #ffffff;
+    --color-background: #eef1f4;
+}
 
-        body {
-            margin: 0;
-            background-color: var(--color-fondo);
-            color: var(--color-texto);
-            font-family: Arial, Helvetica, sans-serif;
-            font-size: 14px;
-            line-height: 1.5;
-        }
+* {
+    box-sizing: border-box;
+}
 
-        a {
-            color: inherit;
-            overflow-wrap: anywhere;
-        }
+html {
+    scroll-behavior: smooth;
+}
 
-        .hoja-vida {
-            max-width: 960px;
-            margin: 28px auto;
-            background: #fff;
-            box-shadow: 0 3px 18px rgba(0, 0, 0, 0.07);
-        }
+body {
+    margin: 0;
+    padding: 24px 16px;
+    background: var(--color-background);
+    color: var(--color-text);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    line-height: 1.55;
+}
 
-        .encabezado {
-            padding: 30px 38px 24px;
-            border-top: 6px solid var(--color-acento);
-            background: #fff;
-        }
+a {
+    color: inherit;
+    overflow-wrap: anywhere;
+}
 
-        .nombre {
-            margin: 0 0 8px;
-            color: var(--color-principal);
-            font-size: 29px;
-            font-weight: 700;
-            line-height: 1.2;
-            overflow-wrap: anywhere;
-        }
+.cv {
+    width: 100%;
+    max-width: 850px;
+    margin: 0 auto;
+    background: var(--color-page);
+    box-shadow: 0 5px 24px rgba(25, 39, 52, 0.08);
+}
 
-        .titulo-profesional {
-            margin-bottom: 15px;
-            color: var(--color-acento);
-            font-size: 16px;
-            font-weight: 600;
-        }
+/* Encabezado */
 
-        .datos-contacto {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 5px 20px;
-            margin: 0;
-            padding: 0;
-            list-style: none;
-        }
+.cv-header {
+    padding: 34px 42px 28px;
+    border-top: 6px solid var(--color-accent);
+    border-bottom: 1px solid var(--color-border);
+}
 
-        .datos-contacto li {
-            overflow-wrap: anywhere;
-        }
+.header-content {
+    width: 100%;
+}
 
-        .datos-contacto a {
-            text-decoration: none;
-        }
+.eyebrow {
+    margin: 0 0 10px;
+    color: var(--color-accent);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.8px;
+}
 
-        .datos-contacto a:hover {
-            text-decoration: underline;
-        }
+.cv-header h1 {
+    margin: 0 0 10px;
+    color: var(--color-primary);
+    font-size: 30px;
+    font-weight: 750;
+    line-height: 1.2;
+    overflow-wrap: anywhere;
+}
 
-        .contenido {
-            padding: 4px 38px 26px;
-        }
+.headline {
+    margin: 0;
+    color: var(--color-accent);
+    font-size: 17px;
+    font-weight: 700;
+}
 
-        .seccion {
-            margin-bottom: 20px;
-            break-inside: auto;
-        }
+.specialization {
+    margin: 4px 0 17px;
+    color: var(--color-muted);
+    font-size: 13px;
+}
 
-        .titulo-seccion {
-            margin: 0 0 10px;
-            padding-bottom: 6px;
-            border-bottom: 1px solid var(--color-borde);
-            color: var(--color-principal);
-            font-size: 15px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
+.contact-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 18px;
+    margin: 0;
+    color: var(--color-text);
+    font-size: 12px;
+    font-style: normal;
+}
 
-        p {
-            margin-bottom: 7px;
-        }
+.contact-info a {
+    text-decoration: none;
+}
 
-        .categoria-habilidad {
-            margin-bottom: 10px;
-        }
+.contact-info a:hover {
+    text-decoration: underline;
+}
 
-        .categoria-habilidad h3 {
-            margin-bottom: 5px;
-            color: var(--color-principal);
-            font-size: 13px;
-            font-weight: 700;
-        }
+.profile-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 18px;
+    margin-top: 13px;
+}
 
-        .badge-habilidad {
-            display: inline-block;
-            margin: 0 4px 5px 0;
-            padding: 4px 9px;
-            border: 1px solid #d8e8e7;
-            border-radius: 4px;
-            background: #edf5f4;
-            color: #245d5b;
-            font-size: 12px;
-            font-weight: 500;
-            white-space: normal;
-        }
+.profile-links a {
+    color: var(--color-accent);
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
 
-        .entrada {
-            margin-bottom: 13px;
-            break-inside: avoid;
-        }
+/* Contenido y secciones */
 
-        .entrada:last-child {
-            margin-bottom: 0;
-        }
+.cv-content {
+    padding: 25px 42px 28px;
+}
 
-        .entrada-titulo {
-            margin: 0;
-            color: var(--color-principal);
-            font-size: 14px;
-            font-weight: 700;
-        }
+.cv-section {
+    margin-bottom: 23px;
+}
 
-        .entrada-subtitulo {
-            margin: 2px 0 4px;
-            color: var(--color-acento);
-            font-weight: 600;
-        }
+.cv-section:last-child {
+    margin-bottom: 0;
+}
 
-        .fecha {
-            color: var(--color-secundario);
-            font-size: 12px;
-            font-weight: 600;
-        }
+.section-title {
+    margin: 0 0 12px;
+    padding-bottom: 7px;
+    border-bottom: 1px solid var(--color-border);
+    color: var(--color-primary);
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: 0.7px;
+    line-height: 1.35;
+    text-transform: uppercase;
+}
 
-        .lista-funciones {
-            margin: 4px 0 0;
-            padding-left: 19px;
-        }
+.cv-section p {
+    margin-top: 0;
+    margin-bottom: 8px;
+}
 
-        .lista-funciones li {
-            margin-bottom: 2px;
-        }
+.cv-section p:last-child {
+    margin-bottom: 0;
+}
 
-        .texto-pendiente {
-            color: var(--color-secundario);
-            font-size: 12px;
-        }
+.cv-section strong {
+    color: var(--color-primary);
+}
 
-        .pie {
-            padding: 12px 38px;
-            border-top: 1px solid var(--color-borde);
-            color: var(--color-secundario);
-            font-size: 11px;
-        }
+/* Habilidades */
 
-        .botones {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin: 20px auto;
-        }
+.skills-group {
+    margin-bottom: 13px;
+}
 
-        /* Ajustes para celulares y tabletas */
-        @media (max-width: 767px) {
-            body {
-                font-size: 14px;
-            }
+.skills-group:last-child {
+    margin-bottom: 0;
+}
 
-            .hoja-vida {
-                margin: 0;
-                box-shadow: none;
-            }
+.subsection-title {
+    margin: 0 0 7px;
+    color: var(--color-primary);
+    font-size: 13px;
+    font-weight: 700;
+}
 
-            .encabezado {
-                padding: 25px 20px 20px;
-            }
+.tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
 
-            .nombre {
-                font-size: 25px;
-            }
+.tag-list li {
+    max-width: 100%;
+    padding: 4px 9px;
+    border: 1px solid #d7e7e5;
+    border-radius: 4px;
+    background: var(--color-soft);
+    color: #285c5a;
+    font-size: 11.5px;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+}
 
-            .contenido {
-                padding: 8px 20px 22px;
-            }
+/* Experiencia y educación */
 
-            .pie {
-                padding: 12px 20px;
-            }
+.experience-item,
+.education-item {
+    margin-bottom: 16px;
+    break-inside: avoid;
+    page-break-inside: avoid;
+}
 
-            .datos-contacto {
-                display: block;
-            }
+.experience-item:last-child,
+.education-item:last-child {
+    margin-bottom: 0;
+}
 
-            .datos-contacto li {
-                margin-bottom: 5px;
-            }
-        }
+.entry-heading {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 6px 15px;
+}
 
-        /* Formato de impresión y guardado como PDF */
-        @page {
-            size: A4;
-            margin: 12mm;
-        }
+.entry-heading h3,
+.education-item h3 {
+    margin: 0 0 4px;
+    color: var(--color-primary);
+    font-size: 13.5px;
+    font-weight: 750;
+    line-height: 1.4;
+}
 
-        @media print {
-            body {
-                background: #fff;
-                color: #222;
-                font-size: 9.5pt;
-                line-height: 1.32;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
+.entry-date {
+    flex-shrink: 0;
+    margin: 0 0 4px;
+    color: var(--color-accent);
+    font-size: 11.5px;
+    font-weight: 700;
+}
 
-            .hoja-vida {
-                width: 100%;
-                max-width: none;
-                margin: 0;
-                box-shadow: none;
-            }
+.entry-location {
+    margin: 0 0 5px !important;
+    color: var(--color-muted);
+    font-size: 12px;
+}
 
-            .encabezado {
-                padding: 12px 18px 12px;
-                border-top-width: 4px;
-            }
+.detail-list {
+    margin: 4px 0 0;
+    padding-left: 19px;
+}
 
-            .nombre {
-                font-size: 21pt;
-            }
+.detail-list li {
+    margin-bottom: 4px;
+    padding-left: 2px;
+}
 
-            .titulo-profesional {
-                margin-bottom: 8px;
-                font-size: 10.5pt;
-            }
+.detail-list li:last-child {
+    margin-bottom: 0;
+}
 
-            .datos-contacto {
-                gap: 3px 14px;
-                font-size: 8.5pt;
-            }
+.education-item p {
+    margin: 0;
+    color: var(--color-muted);
+    font-size: 12.5px;
+}
 
-            .contenido {
-                padding: 5px 18px 8px;
-            }
+/* Pie de página */
 
-            .seccion {
-                margin-bottom: 12px;
-            }
+.cv-footer {
+    padding: 12px 42px;
+    border-top: 1px solid var(--color-border);
+    background: #fafbfc;
+    color: var(--color-muted);
+    font-size: 10.5px;
+    text-align: center;
+}
 
-            .titulo-seccion {
-                margin-bottom: 6px;
-                padding-bottom: 4px;
-                font-size: 10pt;
-            }
+.cv-footer p {
+    margin: 0;
+}
 
-            .categoria-habilidad {
-                margin-bottom: 5px;
-            }
+/* Botón de descarga: fuera de #hoja-vida */
 
-            .categoria-habilidad h3 {
-                margin-bottom: 3px;
-                font-size: 9pt;
-            }
+.download-container {
+    max-width: 850px;
+    margin: 20px auto 8px;
+    text-align: center;
+}
 
-            .badge-habilidad {
-                padding: 2px 5px;
-                margin-bottom: 2px;
-                font-size: 8pt;
-            }
+.download-button {
+    display: inline-block;
+    padding: 12px 22px;
+    border: 0;
+    border-radius: 5px;
+    background: var(--color-accent);
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
 
-            .entrada {
-                margin-bottom: 8px;
-                break-inside: avoid;
-            }
+.download-button:hover {
+    background: #205f5d;
+}
 
-            .entrada-titulo {
-                font-size: 9.5pt;
-            }
+.download-button:focus-visible {
+    outline: 3px solid #8dc5c2;
+    outline-offset: 3px;
+}
 
-            .entrada-subtitulo,
-            .fecha {
-                font-size: 8.5pt;
-            }
+.download-button:disabled {
+    cursor: wait;
+    opacity: 0.7;
+}
 
-            .lista-funciones {
-                margin-top: 2px;
-            }
+.download-status {
+    min-height: 18px;
+    margin: 9px 0 0;
+    color: var(--color-muted);
+    font-size: 12px;
+}
 
-            .pie,
-            .botones {
-                display: none !important;
-            }
+/* Diseño adaptable */
 
-            a {
-                color: inherit !important;
-                text-decoration: none !important;
-            }
+@media (max-width: 600px) {
+    body {
+        padding: 0;
+        font-size: 13px;
+    }
 
-            .botones {
-                display: none !important;
-            }
+    .cv {
+        box-shadow: none;
+    }
 
-        }
+    .cv-header {
+        padding: 26px 21px 22px;
+    }
+
+    .cv-header h1 {
+        font-size: 25px;
+    }
+
+    .headline {
+        font-size: 15px;
+    }
+
+    .contact-info {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .cv-content {
+        padding: 23px 21px;
+    }
+
+    .cv-section {
+        margin-bottom: 20px;
+    }
+
+    .entry-heading {
+        display: block;
+    }
+
+    .entry-date {
+        display: block;
+    }
+
+    .cv-footer {
+        padding: 12px 21px;
+    }
+
+    .download-container {
+        padding: 0 16px;
+    }
+
+    .download-button {
+        width: 100%;
+        max-width: 360px;
+    }
+}
+
+/* Impresión A4 y salida PDF */
+
+@page {
+    size: A4 portrait;
+    margin: 12mm;
+}
+
+@media print {
+    html,
+    body {
+        width: 100%;
+        margin: 0 !important;
+        padding: 0 !important;
+        background: #ffffff !important;
+        color: #222222;
+        font-size: 9.5pt;
+        line-height: 1.35;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    .cv {
+        width: 100%;
+        max-width: none;
+        margin: 0;
+        box-shadow: none;
+    }
+
+    .cv-header {
+        padding: 12px 17px 11px;
+        border-top-width: 4px;
+    }
+
+    .eyebrow {
+        margin-bottom: 5px;
+        font-size: 8pt;
+    }
+
+    .cv-header h1 {
+        margin-bottom: 5px;
+        font-size: 19pt;
+    }
+
+    .headline {
+        font-size: 11pt;
+    }
+
+    .specialization {
+        margin: 3px 0 9px;
+        font-size: 9pt;
+    }
+
+    .contact-info,
+    .profile-links {
+        gap: 3px 12px;
+        font-size: 8pt;
+    }
+
+    .profile-links {
+        margin-top: 7px;
+    }
+
+    .cv-content {
+        padding: 13px 17px 12px;
+    }
+
+    .cv-section {
+        margin-bottom: 12px;
+    }
+
+    .section-title {
+        margin-bottom: 6px;
+        padding-bottom: 4px;
+        font-size: 9.5pt;
+    }
+
+    .cv-section p {
+        margin-bottom: 4px;
+    }
+
+    .skills-group {
+        margin-bottom: 7px;
+    }
+
+    .subsection-title {
+        margin-bottom: 4px;
+        font-size: 9pt;
+    }
+
+    .tag-list {
+        gap: 4px;
+    }
+
+    .tag-list li {
+        padding: 2px 5px;
+        font-size: 8pt;
+    }
+
+    .experience-item,
+    .education-item {
+        margin-bottom: 9px;
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+
+    .entry-heading h3,
+    .education-item h3 {
+        font-size: 9.5pt;
+    }
+
+    .entry-date,
+    .entry-location,
+    .education-item p {
+        font-size: 8.5pt;
+    }
+
+    .detail-list {
+        margin-top: 2px;
+    }
+
+    .detail-list li {
+        margin-bottom: 2px;
+    }
+
+    .cv-footer {
+        padding: 7px 17px;
+        font-size: 8pt;
+    }
+
+    /* Nunca mostrar el botón ni el estado de descarga en PDF */
+    #btn-descargar,
+    .download-container,
+    .no-pdf {
+        display: none !important;
+        visibility: hidden !important;
+    }
+
+    a {
+        color: inherit !important;
+        text-decoration: none !important;
+    }
+}
