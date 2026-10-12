@@ -787,8 +787,7 @@ body {
         border-radius: 0 !important;
         box-shadow: none !important;
     }
-}
-
+      
 /* Foto opcional */
 .photo-container{
     display:none; /* oculta por defecto */
@@ -806,3 +805,5 @@ body {
 }
 /* Para el PDF con foto */
 .pdf-generating.with-photo .photo-container{ display:block !important; }
+
+}
