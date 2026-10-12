@@ -1,4 +1,5 @@
 
+
 "use strict";
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -11,6 +12,8 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
     }
 
+    const nombreArchivo = "HojaDeVida-Juliet-Fonseca.pdf";
+
     function mostrarEstado(mensaje) {
         if (estadoDescarga) {
             estadoDescarga.textContent = mensaje;
@@ -20,19 +23,24 @@ document.addEventListener("DOMContentLoaded", () => {
     botonDescargar.addEventListener("click", async () => {
         if (typeof window.html2pdf !== "function") {
             mostrarEstado(
-                "No se pudo cargar la librería PDF. Revisa tu conexión a internet."
+                "No se pudo cargar la librería PDF. Verifica tu conexión a internet."
             );
             console.error("html2pdf.js no está disponible.");
             return;
         }
 
         botonDescargar.disabled = true;
-        mostrarEstado("Generando tu hoja de vida en PDF...");
+        mostrarEstado("Preparando tu hoja de vida...");
+
+        contenedorCV.classList.add("pdf-generating");
 
         try {
+            // Permite que el navegador aplique los estilos del PDF.
+            await new Promise(resolve => requestAnimationFrame(resolve));
+
             const opciones = {
                 margin: [8, 8, 8, 8],
-                filename: "HojaDeVida-Juliet-Fonseca.pdf",
+                filename: nombreArchivo,
 
                 image: {
                     type: "jpeg",
@@ -44,7 +52,8 @@ document.addEventListener("DOMContentLoaded", () => {
                     useCORS: true,
                     backgroundColor: "#ffffff",
                     scrollX: 0,
-                    scrollY: 0
+                    scrollY: 0,
+                    logging: false
                 },
 
                 jsPDF: {
@@ -52,6 +61,37 @@ document.addEventListener("DOMContentLoaded", () => {
                     format: "a4",
                     orientation: "portrait"
                 },
+
+                pagebreak: {
+                    mode: ["css", "legacy"],
+                    avoid: [
+                        ".education-item"
+                    ]
+                }
+            };
+
+            mostrarEstado("Generando el PDF...");
+
+            await window.html2pdf()
+                .set(opciones)
+                .from(contenedorCV)
+                .save();
+
+            mostrarEstado("¡Tu hoja de vida se descargó correctamente!");
+
+        } catch (error) {
+            console.error("Error al generar el PDF:", error);
+            mostrarEstado(
+                "No se pudo generar el PDF. Revisa la consola e inténtalo nuevamente."
+            );
+
+        } finally {
+            contenedorCV.classList.remove("pdf-generating");
+            botonDescargar.disabled = false;
+        }
+    });
+});
+
 
                 pagebreak: {
                     mode: ["css", "legacy"],
