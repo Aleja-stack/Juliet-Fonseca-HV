@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
   check.addEventListener("change", () => {
     const on = check.checked;
     photo.classList.toggle("show", on);
-    headerInner.classList.toggle("has-photo", on);
+    headerInner.classList.toggle("has-photo", check.checked);
   });
 
   btn.addEventListener("click", async () => {
