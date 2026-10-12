@@ -91,32 +91,3 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 });
-
-
-                pagebreak: {
-                    mode: ["css", "legacy"],
-                    avoid: [
-                        ".experience-item",
-                        ".education-item"
-                    ]
-                }
-            };
-
-            await window.html2pdf()
-                .set(opciones)
-                .from(contenedorCV)
-                .save();
-
-            mostrarEstado("¡PDF descargado correctamente!");
-
-        } catch (error) {
-            console.error("Error al generar el PDF:", error);
-            mostrarEstado(
-                "No se pudo generar el PDF. Inténtalo nuevamente."
-            );
-        } finally {
-            botonDescargar.disabled = false;
-        }
-    });
-});
-
