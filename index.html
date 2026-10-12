@@ -1,24 +1,228 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Juliet Fonseca - Desarrolladora ADSO</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Juliet Alejandra Fonseca Cipagauta">
+    <meta name="description" content="Hoja de vida de Juliet Alejandra Fonseca Cipagauta, aprendiz SENA ADSO y desarrolladora web junior.">
+
+    <title>Juliet Alejandra Fonseca Cipagauta | Hoja de vida</title>
+
+    <!-- Hoja de estilos local -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- html2pdf.js para generar el PDF en el navegador -->
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
+        defer>
+    </script>
+
+    <!-- JavaScript local -->
+    <script src="script.js" defer></script>
 </head>
 <body>
 
-<header>
-<h1>Juliet Alejandra Fonseca Cipagauta</h1>
-<p>Zipaquirá, Cundinamarca | 3209732736 | jc.fonseca@gmail.com</p>
-<p><a href="https://aleja-stack.github.io/Juliet-Fonseca-HV/" target="_blank">Portafolio Web</a> | <a href="https://linkedin.com" target="_blank">LinkedIn</a></p>
-</header>
+    <!-- Contenido que se convertirá en PDF -->
+    <main id="hoja-vida" class="cv">
 
-<section>
-<h2>Perfil Profesional</h2>
-<p>
-<strong>Aprendiz SENA ADSO - Desarrolladora Web Junior | En transición de Retail a Tecnología.</strong>
-Tecnóloga en formación con bases sólidas en HTML5, CSS3, JavaScript, PHP, MySQL y Git/GitHub. 
+        <header class="cv-header">
+            <div class="header-content">
+                <p class="eyebrow">HOJA DE VIDA PROFESIONAL</p>
+
+                <h1>Juliet Alejandra Fonseca Cipagauta</h1>
+
+                <p class="headline">
+                    Aprendiz SENA ADSO - Desarrolladora Web Junior
+                </p>
+
+                <p class="specialization">
+                    En transición de Retail a Tecnología
+                </p>
+
+                <address class="contact-info">
+                    <span>Zipaquirá, Cundinamarca</span>
+                    <span>
+                        <a href="tel:+573209732736">3209732736</a>
+                    </span>
+                    <span>
+                        <a href="mailto:jc.fonseca@gmail.com">
+                            jc.fonseca@gmail.com
+                        </a>
+                    </span>
+                </address>
+
+                <nav class="profile-links" aria-label="Enlaces profesionales">
+                    <a href="https://aleja-stack.github.io/Juliet-Fonseca-HV/">
+                        Portafolio Web
+                    </a>
+                    <a href="https://linkedin.com">
+                        LinkedIn
+                    </a>
+                </nav>
+            </div>
+        </header>
+
+        <div class="cv-content">
+
+            <!-- Perfil profesional -->
+            <section class="cv-section" aria-labelledby="perfil">
+                <h2 id="perfil" class="section-title">
+                    Perfil profesional
+                </h2>
+
+                <p>
+                    <strong>
+                        Aprendiz SENA ADSO - Desarrolladora Web Junior |
+                        En transición de Retail a Tecnología.
+                    </strong>
+                    Tecnóloga en formación con bases sólidas en HTML5,
+                    CSS3, JavaScript, PHP, MySQL y Git/GitHub. Con 8+ años
+                    de experiencia en entornos operativos de alta exigencia,
+                    destacada por organización, atención al detalle y
+                    servicio al cliente. Participé en el desarrollo de un
+                    Sistema Punto de Venta (POS) académico bajo metodología
+                    SCRUM. Busco mi primera oportunidad como Soporte, QA o
+                    Desarrolladora Junior.
+                </p>
+            </section>
+
+            <!-- Habilidades técnicas y transferibles -->
+            <section class="cv-section" aria-labelledby="habilidades">
+                <h2 id="habilidades" class="section-title">
+                    Habilidades
+                </h2>
+
+                <div class="skills-group">
+                    <h3 class="subsection-title">Técnicas (ATS)</h3>
+
+                    <ul class="tag-list">
+                        <li>HTML5</li>
+                        <li>CSS3</li>
+                        <li>JavaScript</li>
+                        <li>PHP</li>
+                        <li>MySQL</li>
+                        <li>Git / GitHub</li>
+                        <li>SCRUM</li>
+                        <li>Sistema POS</li>
+                        <li>Control de Inventarios</li>
+                    </ul>
+                </div>
+
+                <div class="skills-group">
+                    <h3 class="subsection-title">Transferibles</h3>
+
+                    <ul class="tag-list">
+                        <li>Atención al Cliente (50+ clientes/día)</li>
+                        <li>Organización</li>
+                        <li>Atención al Detalle</li>
+                        <li>Levantamiento de Requerimientos</li>
+                        <li>Trabajo en Equipo</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Experiencia laboral -->
+            <section class="cv-section" aria-labelledby="experiencia">
+                <h2 id="experiencia" class="section-title">
+                    Experiencia laboral
+                </h2>
+
+                <article class="experience-item">
+                    <div class="entry-heading">
+                        <h3>Mercadeo e Impulso - Delipavo</h3>
+                        <p class="entry-date">Sep 2018 - Actualidad</p>
+                    </div>
+
+                    <p class="entry-location">Zipaquirá</p>
+
+                    <ul class="detail-list">
+                        <li>
+                            Atención y asesoría a un promedio de 50+ clientes
+                            diarios, fortaleciendo comunicación efectiva y
+                            resolución de problemas.
+                        </li>
+                        <li>
+                            Ejecución y seguimiento de estrategias de mercadeo
+                            en punto de venta, mejorando visibilidad de producto.
+                        </li>
+                    </ul>
+                </article>
+
+                <article class="experience-item">
+                    <div class="entry-heading">
+                        <h3>
+                            Operaria Logística y Surtido - Cencosud Colombia
+                        </h3>
+                        <p class="entry-date">Jul 2013 - Dic 2015</p>
+                    </div>
+
+                    <p class="entry-location">Zipaquirá</p>
+
+                    <ul class="detail-list">
+                        <li>
+                            Gestión y control de inventario de 300+ referencias
+                            en bodega y piso de venta, asegurando exactitud de
+                            stock y rotación.
+                        </li>
+                        <li>
+                            Apoyo en procesos de inventario físico, planometría
+                            y actualización de precios con alta precisión.
+                        </li>
+                    </ul>
+                </article>
+            </section>
+
+            <!-- Formación académica y complementaria -->
+            <section class="cv-section" aria-labelledby="formacion">
+                <h2 id="formacion" class="section-title">
+                    Formación académica
+                </h2>
+
+                <article class="education-item">
+                    <h3>
+                        Tecnólogo en Análisis y Desarrollo de Software - SENA
+                    </h3>
+                    <p>
+                        En curso (Etapa Productiva) - Proyecto POS con PHP
+                        y MySQL
+                    </p>
+                </article>
+
+                <article class="education-item">
+                    <h3>
+                        Bootcamp Programación Básico - Talento Tech / MinTIC
+                    </h3>
+                    <p>2025</p>
+                </article>
+            </section>
+
+        </div>
+
+        <footer class="cv-footer">
+            <p>
+                Juliet Alejandra Fonseca Cipagauta |
+                Zipaquirá, Cundinamarca
+            </p>
+        </footer>
+
+    </main>
+
+    <!-- Fuera del contenido imprimible y del contenedor del CV -->
+    <div class="download-container no-pdf">
+        <button
+            type="button"
+            id="btn-descargar"
+            class="download-button">
+            Descargar hoja de vida en PDF
+        </button>
+        <p id="estado-descarga" class="download-status" role="status"
+           aria-live="polite"></p>
+    </div>
+
+</body>
+</html>
+ sólidas en HTML5, CSS3, JavaScript, PHP, MySQL y Git/GitHub. 
 Con 8+ años de experiencia en entornos operativos de alta exigencia, destacada por organización, atención al detalle y servicio al cliente. 
 Participé en el desarrollo de un Sistema Punto de Venta (POS) académico bajo metodología SCRUM. 
 Busco mi primera oportunidad como Soporte, QA o Desarrolladora Junior.
