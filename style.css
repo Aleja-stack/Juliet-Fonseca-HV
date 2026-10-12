@@ -1,17 +1,20 @@
-       
-/* =========================================
-   Estilos generales del CV
-   ========================================= */
+
+/* ==========================================
+   HOJA DE VIDA - JULIET FONSECA
+   Diseño web: azul oscuro + turquesa
+   ========================================== */
 
 :root {
-    --color-primary: #243447;
-    --color-accent: #287a78;
-    --color-text: #303944;
-    --color-muted: #5d6875;
-    --color-border: #dce2e8;
-    --color-soft: #edf5f4;
-    --color-page: #ffffff;
-    --color-background: #eef1f4;
+    --navy: #17324d;
+    --navy-light: #244762;
+    --turquoise: #16a6a3;
+    --turquoise-dark: #087e7c;
+    --text: #344256;
+    --muted: #718096;
+    --border: #e1e8ef;
+    --surface: #ffffff;
+    --surface-soft: #f2f8fb;
+    --background: #edf3f8;
 }
 
 * {
@@ -24,523 +27,765 @@ html {
 
 body {
     margin: 0;
-    padding: 24px 16px;
-    background: var(--color-background);
-    color: var(--color-text);
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 14px;
-    line-height: 1.55;
+    background:
+        radial-gradient(ellipse at top left, #dff4f4 0, transparent 36%),
+        var(--background);
+    color: var(--text);
+    font-family: Inter, "Segoe UI", Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.65;
 }
 
-a {
-    color: inherit;
-    overflow-wrap: anywhere;
+/* Barra de navegación */
+
+.navbar-custom {
+    background: linear-gradient(110deg, var(--navy), #204b65);
+    border-bottom: 3px solid var(--turquoise);
+    box-shadow: 0 4px 18px rgba(23, 50, 77, 0.13);
+}
+
+.navbar-custom .navbar-brand {
+    letter-spacing: 0.2px;
+}
+
+.navbar-custom .navbar-text {
+    color: #d4e6ef;
+    font-size: 0.9rem;
+}
+
+/* Contenedor principal */
+
+.cv-shell {
+    width: 100%;
+    max-width: 960px;
 }
 
 .cv {
-    width: 100%;
-    max-width: 850px;
-    margin: 0 auto;
-    background: var(--color-page);
-    box-shadow: 0 5px 24px rgba(25, 39, 52, 0.08);
+    position: relative;
+    overflow: hidden;
+    background: var(--surface);
+    border: 1px solid rgba(23, 50, 77, 0.07);
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(23, 50, 77, 0.12);
 }
 
 /* Encabezado */
 
 .cv-header {
-    padding: 34px 42px 28px;
-    border-top: 6px solid var(--color-accent);
-    border-bottom: 1px solid var(--color-border);
+    position: relative;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 95% 10%, rgba(22, 166, 163, 0.19), transparent 28%),
+        linear-gradient(125deg, #17324d 0%, #204c67 72%, #176d78 100%);
+    color: white;
 }
 
-.header-content {
-    width: 100%;
+.header-accent {
+    height: 5px;
+    background: linear-gradient(90deg, #16a6a3, #70e0d2, #16a6a3);
+}
+
+.header-inner {
+    padding: 46px 54px 40px;
 }
 
 .eyebrow {
-    margin: 0 0 10px;
-    color: var(--color-accent);
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 1.8px;
+    display: inline-flex;
+    align-items: center;
+    margin: 0 0 18px;
+    color: #86e1db;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 2px;
 }
 
 .cv-header h1 {
-    margin: 0 0 10px;
-    color: var(--color-primary);
-    font-size: 30px;
-    font-weight: 750;
-    line-height: 1.2;
+    margin: 0 0 14px;
+    color: #ffffff;
+    font-size: clamp(2rem, 4vw, 2.9rem);
+    font-weight: 800;
+    letter-spacing: -1.1px;
+    line-height: 1.12;
     overflow-wrap: anywhere;
+}
+
+.name-break {
+    display: none;
 }
 
 .headline {
     margin: 0;
-    color: var(--color-accent);
-    font-size: 17px;
-    font-weight: 700;
+    color: #ffffff;
+    font-size: 1.15rem;
+    font-weight: 650;
+}
+
+.headline-divider {
+    padding: 0 5px;
+    color: #75ded5;
 }
 
 .specialization {
-    margin: 4px 0 17px;
-    color: var(--color-muted);
-    font-size: 13px;
+    margin: 8px 0 24px;
+    color: #d5e7f0;
+    font-size: 0.95rem;
 }
 
-.contact-info {
+.contact-grid {
     display: flex;
     flex-wrap: wrap;
-    gap: 6px 18px;
-    margin: 0;
-    color: var(--color-text);
-    font-size: 12px;
-    font-style: normal;
+    gap: 11px 22px;
 }
 
-.contact-info a {
+.contact-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    color: #f1f7fa;
+    font-size: 0.88rem;
     text-decoration: none;
+    overflow-wrap: anywhere;
 }
 
-.contact-info a:hover {
-    text-decoration: underline;
+.contact-item i {
+    color: #72e0d5;
+}
+
+.contact-item:hover {
+    color: #91eee6;
 }
 
 .profile-links {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px 18px;
-    margin-top: 13px;
+    gap: 10px;
+    margin-top: 23px;
 }
 
 .profile-links a {
-    color: var(--color-accent);
-    font-size: 12px;
-    font-weight: 700;
-    text-decoration: underline;
-    text-underline-offset: 3px;
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 14px;
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.07);
+    color: white;
+    font-size: 0.84rem;
+    font-weight: 650;
+    text-decoration: none;
+    transition: background 0.2s ease, transform 0.2s ease;
 }
 
-/* Contenido y secciones */
+.profile-links a:hover {
+    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.16);
+}
+
+/* Contenido */
 
 .cv-content {
-    padding: 25px 42px 28px;
+    padding: 38px 54px 30px;
 }
 
 .cv-section {
-    margin-bottom: 23px;
+    margin-bottom: 34px;
+    scroll-margin-top: 20px;
 }
 
 .cv-section:last-child {
-    margin-bottom: 0;
+    margin-bottom: 12px;
 }
 
-.section-title {
-    margin: 0 0 12px;
-    padding-bottom: 7px;
-    border-bottom: 1px solid var(--color-border);
-    color: var(--color-primary);
-    font-size: 15px;
+.section-heading {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    margin-bottom: 18px;
+}
+
+.section-icon {
+    display: inline-flex;
+    flex: 0 0 42px;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border: 1px solid #d2efed;
+    border-radius: 12px;
+    background: #eaf8f7;
+    color: var(--turquoise-dark);
+    font-size: 1.2rem;
+}
+
+.section-heading h2 {
+    margin: 0;
+    color: var(--navy);
+    font-size: 1.15rem;
     font-weight: 800;
-    letter-spacing: 0.7px;
-    line-height: 1.35;
-    text-transform: uppercase;
+    letter-spacing: 0.35px;
 }
 
-.cv-section p {
-    margin-top: 0;
-    margin-bottom: 8px;
+.section-heading h2::after {
+    display: block;
+    width: 42px;
+    height: 3px;
+    margin-top: 7px;
+    border-radius: 4px;
+    background: var(--turquoise);
+    content: "";
 }
 
-.cv-section p:last-child {
-    margin-bottom: 0;
-}
-
-.cv-section strong {
-    color: var(--color-primary);
+.cv-section > p {
+    margin: 0;
+    color: #455469;
+    line-height: 1.85;
 }
 
 /* Habilidades */
 
-.skills-group {
-    margin-bottom: 13px;
-}
-
-.skills-group:last-child {
-    margin-bottom: 0;
-}
-
 .subsection-title {
-    margin: 0 0 7px;
-    color: var(--color-primary);
-    font-size: 13px;
-    font-weight: 700;
+    margin: 0 0 11px;
+    color: var(--navy);
+    font-size: 0.91rem;
+    font-weight: 750;
 }
 
-.tag-list {
+.skill-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 6px;
-    margin: 0;
-    padding: 0;
-    list-style: none;
+    gap: 8px;
 }
 
-.tag-list li {
-    max-width: 100%;
-    padding: 4px 9px;
-    border: 1px solid #d7e7e5;
-    border-radius: 4px;
-    background: var(--color-soft);
-    color: #285c5a;
-    font-size: 11.5px;
+.skill-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 7px 12px;
+    border: 1px solid #c9eae8;
+    border-radius: 8px;
+    background: #eaf8f7;
+    color: #176765;
+    font-size: 0.82rem;
+    font-weight: 700;
     line-height: 1.4;
     overflow-wrap: anywhere;
+    transition: transform 0.18s ease, background 0.18s ease;
 }
 
-/* Experiencia y educación */
+.skill-badge:hover {
+    transform: translateY(-2px);
+    background: #d9f3f0;
+}
 
-.experience-item,
-.education-item {
-    margin-bottom: 16px;
+.skill-badge.soft {
+    border-color: #dce5ef;
+    background: #f3f6fa;
+    color: #41556d;
+}
+
+/* Experiencia laboral */
+
+.timeline {
+    position: relative;
+    margin-left: 9px;
+    padding-left: 25px;
+    border-left: 2px solid #d8eeed;
+}
+
+.experience-item {
+    position: relative;
+    margin-bottom: 27px;
     break-inside: avoid;
     page-break-inside: avoid;
 }
 
-.experience-item:last-child,
-.education-item:last-child {
+.experience-item:last-child {
     margin-bottom: 0;
+}
+
+.timeline-dot {
+    position: absolute;
+    top: 5px;
+    left: -33px;
+    width: 14px;
+    height: 14px;
+    border: 3px solid #d2f1ee;
+    border-radius: 50%;
+    background: var(--turquoise-dark);
 }
 
 .entry-heading {
     display: flex;
-    align-items: baseline;
+    align-items: flex-start;
     justify-content: space-between;
-    gap: 6px 15px;
+    gap: 10px 20px;
+    margin-bottom: 11px;
 }
 
 .entry-heading h3,
 .education-item h3 {
-    margin: 0 0 4px;
-    color: var(--color-primary);
-    font-size: 13.5px;
-    font-weight: 750;
-    line-height: 1.4;
+    margin: 0 0 5px;
+    color: var(--navy);
+    font-size: 1rem;
+    font-weight: 800;
+    line-height: 1.45;
 }
 
-.entry-date {
-    flex-shrink: 0;
-    margin: 0 0 4px;
-    color: var(--color-accent);
-    font-size: 11.5px;
+.entry-company {
+    margin: 0;
+    color: var(--turquoise-dark);
+    font-size: 0.87rem;
     font-weight: 700;
 }
 
-.entry-location {
-    margin: 0 0 5px !important;
-    color: var(--color-muted);
-    font-size: 12px;
+.entry-date {
+    flex: 0 0 auto;
+    display: inline-block;
+    padding: 5px 10px;
+    border: 1px solid #d8e8f1;
+    border-radius: 7px;
+    background: #f0f6fa;
+    color: var(--navy-light);
+    font-size: 0.77rem;
+    font-weight: 750;
+    line-height: 1.5;
 }
 
 .detail-list {
-    margin: 4px 0 0;
-    padding-left: 19px;
+    margin: 0;
+    padding-left: 20px;
+    color: #455469;
 }
 
 .detail-list li {
-    margin-bottom: 4px;
-    padding-left: 2px;
+    margin-bottom: 8px;
+    padding-left: 4px;
 }
 
 .detail-list li:last-child {
     margin-bottom: 0;
 }
 
-.education-item p {
-    margin: 0;
-    color: var(--color-muted);
-    font-size: 12.5px;
+.detail-list li::marker {
+    color: var(--turquoise-dark);
 }
 
-/* Pie de página */
+/* Formación académica */
+
+.education-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 19px;
+    padding: 18px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: #fbfdff;
+    break-inside: avoid;
+    page-break-inside: avoid;
+}
+
+.education-item:last-child {
+    margin-bottom: 0;
+}
+
+.education-marker {
+    display: inline-flex;
+    flex: 0 0 39px;
+    align-items: center;
+    justify-content: center;
+    width: 39px;
+    height: 39px;
+    border-radius: 10px;
+    background: #e6f7f5;
+    color: var(--turquoise-dark);
+    font-size: 1.1rem;
+}
+
+.education-item h3 {
+    font-size: 0.95rem;
+}
+
+.education-description {
+    margin: 4px 0 0;
+    color: var(--muted);
+    font-size: 0.87rem;
+}
+
+/* Pie del CV */
 
 .cv-footer {
-    padding: 12px 42px;
-    border-top: 1px solid var(--color-border);
-    background: #fafbfc;
-    color: var(--color-muted);
-    font-size: 10.5px;
+    padding: 16px 20px;
+    border-top: 1px solid var(--border);
+    background: #f7fafc;
+    color: var(--muted);
+    font-size: 0.8rem;
     text-align: center;
 }
 
-.cv-footer p {
-    margin: 0;
-}
-
-/* Botón de descarga: fuera de #hoja-vida */
+/* Botón de descarga */
 
 .download-container {
-    max-width: 850px;
-    margin: 20px auto 8px;
+    padding: 26px 12px 10px;
     text-align: center;
 }
 
-.download-button {
-    display: inline-block;
-    padding: 12px 22px;
+.btn-download {
+    padding: 13px 23px;
     border: 0;
-    border-radius: 5px;
-    background: var(--color-accent);
-    color: #ffffff;
-    font-family: inherit;
-    font-size: 14px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
+    border-radius: 10px;
+    background: linear-gradient(110deg, var(--navy), #205b70);
+    box-shadow: 0 8px 20px rgba(23, 50, 77, 0.18);
+    color: white;
+    font-size: 0.95rem;
+    font-weight: 750;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.download-button:hover {
-    background: #205f5d;
+.btn-download:hover,
+.btn-download:focus {
+    transform: translateY(-2px);
+    background: var(--turquoise-dark);
+    box-shadow: 0 10px 24px rgba(8, 126, 124, 0.22);
+    color: white;
 }
 
-.download-button:focus-visible {
-    outline: 3px solid #8dc5c2;
-    outline-offset: 3px;
-}
-
-.download-button:disabled {
+.btn-download:disabled {
     cursor: wait;
     opacity: 0.7;
 }
 
 .download-status {
-    min-height: 18px;
-    margin: 9px 0 0;
-    color: var(--color-muted);
-    font-size: 12px;
+    min-height: 22px;
+    margin: 12px 0 0;
+    color: var(--navy);
+    font-size: 0.87rem;
 }
 
-/* Diseño adaptable */
+.download-note {
+    margin: 5px 0 0;
+    color: var(--muted);
+    font-size: 0.8rem;
+}
 
-@media (max-width: 600px) {
+/* Pie de la página web */
+
+.site-footer {
+    padding: 22px 16px;
+    color: #718096;
+    font-size: 0.82rem;
+    text-align: center;
+}
+
+/* Responsive: tablets y móviles */
+
+@media (max-width: 767.98px) {
     body {
-        padding: 0;
-        font-size: 13px;
+        font-size: 14px;
+    }
+
+    main.container {
+        padding-right: 12px !important;
+        padding-left: 12px !important;
     }
 
     .cv {
-        box-shadow: none;
+        border-radius: 14px;
     }
 
-    .cv-header {
-        padding: 26px 21px 22px;
+    .header-inner {
+        padding: 32px 25px 28px;
     }
 
     .cv-header h1 {
-        font-size: 25px;
+        font-size: clamp(1.8rem, 7vw, 2.4rem);
+        letter-spacing: -0.6px;
     }
 
     .headline {
-        font-size: 15px;
+        font-size: 1rem;
     }
 
-    .contact-info {
-        display: flex;
+    .contact-grid {
         flex-direction: column;
-        gap: 5px;
+        gap: 10px;
     }
 
     .cv-content {
-        padding: 23px 21px;
+        padding: 28px 24px 22px;
     }
 
     .cv-section {
-        margin-bottom: 20px;
+        margin-bottom: 29px;
     }
 
     .entry-heading {
-        display: block;
+        flex-direction: column;
+        gap: 8px;
     }
 
     .entry-date {
-        display: block;
+        align-self: flex-start;
     }
 
-    .cv-footer {
-        padding: 12px 21px;
-    }
-
-    .download-container {
-        padding: 0 16px;
-    }
-
-    .download-button {
-        width: 100%;
-        max-width: 360px;
+    .education-item {
+        padding: 14px;
     }
 }
 
-/* Impresión A4 y salida PDF */
-
-@page {
-    size: A4 portrait;
-    margin: 12mm;
-}
-
-@media print {
-    html,
-    body {
-        width: 100%;
-        margin: 0 !important;
-        padding: 0 !important;
-        background: #ffffff !important;
-        color: #222222;
-        font-size: 9.5pt;
-        line-height: 1.35;
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
-    }
-
-    .cv {
-        width: 100%;
-        max-width: none;
-        margin: 0;
-        box-shadow: none;
-    }
-
-    .cv-header {
-        padding: 12px 17px 11px;
-        border-top-width: 4px;
-    }
-
-    .eyebrow {
-        margin-bottom: 5px;
-        font-size: 8pt;
-    }
-
-    .cv-header h1 {
-        margin-bottom: 5px;
-        font-size: 19pt;
-    }
-
-    .headline {
-        font-size: 11pt;
-    }
-
-    .specialization {
-        margin: 3px 0 9px;
-        font-size: 9pt;
-    }
-
-    .contact-info,
-    .profile-links {
-        gap: 3px 12px;
-        font-size: 8pt;
-    }
-
-    .profile-links {
-        margin-top: 7px;
+@media (max-width: 400px) {
+    .header-inner {
+        padding-right: 19px;
+        padding-left: 19px;
     }
 
     .cv-content {
-        padding: 13px 17px 12px;
+        padding-right: 18px;
+        padding-left: 18px;
     }
 
-    .cv-section {
-        margin-bottom: 12px;
+    .section-heading {
+        gap: 10px;
     }
 
-    .section-title {
-        margin-bottom: 6px;
-        padding-bottom: 4px;
-        font-size: 9.5pt;
+    .section-heading h2 {
+        font-size: 1.02rem;
     }
 
-    .cv-section p {
-        margin-bottom: 4px;
-    }
-
-    .skills-group {
-        margin-bottom: 7px;
-    }
-
-    .subsection-title {
-        margin-bottom: 4px;
-        font-size: 9pt;
-    }
-
-    .tag-list {
-        gap: 4px;
-    }
-
-    .tag-list li {
-        padding: 2px 5px;
-        font-size: 8pt;
-    }
-
-    .experience-item,
-    .education-item {
-        margin-bottom: 9px;
-        break-inside: avoid;
-        page-break-inside: avoid;
-    }
-
-    .entry-heading h3,
-    .education-item h3 {
-        font-size: 9.5pt;
-    }
-
-    .entry-date,
-    .entry-location,
-    .education-item p {
-        font-size: 8.5pt;
-    }
-
-    .detail-list {
-        margin-top: 2px;
-    }
-
-    .detail-list li {
-        margin-bottom: 2px;
-    }
-
-    .cv-footer {
-        padding: 7px 17px;
-        font-size: 8pt;
-    }
-
-    /* Nunca mostrar el botón ni el estado de descarga en PDF */
-    #btn-descargar,
-    .download-container,
-    .no-pdf {
-        display: none !important;
-        visibility: hidden !important;
-    }
-
-    a {
-        color: inherit !important;
-        text-decoration: none !important;
+    .skill-badge {
+        font-size: 0.78rem;
     }
 }
 
+/* ==========================================
+   MODO PDF
+   El diseño web no se modifica permanentemente.
+   ========================================== */
 
-/* Ajustes específicos para generar el PDF */
 .pdf-generating {
     width: 100% !important;
     max-width: 794px !important;
     margin: 0 auto !important;
+    overflow: visible !important;
+    border: 0 !important;
+    border-radius: 0 !important;
     box-shadow: none !important;
+    background: #ffffff !important;
+    color: #303944 !important;
+    font-family: Arial, Helvetica, sans-serif !important;
+    font-size: 12px !important;
+    line-height: 1.45 !important;
 }
 
-.pdf-generating .cv-header,
-.pdf-generating .cv-content,
-.pdf-generating .cv-footer {
-    break-inside: auto;
-    page-break-inside: auto;
+.pdf-generating .cv-header {
+    background: #ffffff !important;
+    color: #303944 !important;
+    border-top: 4px solid #16a6a3;
+    border-bottom: 1px solid #dce2e8;
 }
 
-.pdf-generating .experience-item,
+.pdf-generating .header-accent {
+    display: none !important;
+}
+
+.pdf-generating .header-inner {
+    padding: 20px 26px !important;
+}
+
+.pdf-generating .eyebrow,
+.pdf-generating .cv-header h1,
+.pdf-generating .headline,
+.pdf-generating .specialization,
+.pdf-generating .contact-item,
+.pdf-generating .profile-links a {
+    color: #17324d !important;
+}
+
+.pdf-generating .eyebrow {
+    margin-bottom: 8px !important;
+    font-size: 9px !important;
+}
+
+.pdf-generating .cv-header h1 {
+    font-size: 24px !important;
+    line-height: 1.2 !important;
+}
+
+.pdf-generating .name-break {
+    display: none !important;
+}
+
+.pdf-generating .headline {
+    font-size: 13px !important;
+}
+
+.pdf-generating .specialization {
+    margin: 4px 0 12px !important;
+    font-size: 11px !important;
+}
+
+.pdf-generating .contact-grid {
+    gap: 5px 15px !important;
+}
+
+.pdf-generating .contact-item,
+.pdf-generating .profile-links a {
+    font-size: 10px !important;
+    text-decoration: none !important;
+}
+
+.pdf-generating .contact-item i {
+    color: #087e7c !important;
+}
+
+.pdf-generating .profile-links {
+    gap: 12px !important;
+    margin-top: 8px !important;
+}
+
+.pdf-generating .profile-links a {
+    padding: 0 !important;
+    border: 0 !important;
+    background: transparent !important;
+}
+
+.pdf-generating .cv-content {
+    padding: 20px 26px !important;
+}
+
+.pdf-generating .cv-section {
+    margin-bottom: 18px !important;
+}
+
+.pdf-generating .section-heading {
+    gap: 8px !important;
+    margin-bottom: 9px !important;
+}
+
+.pdf-generating .section-icon {
+    flex-basis: 26px !important;
+    width: 26px !important;
+    height: 26px !important;
+    border: 0 !important;
+    background: #eaf8f7 !important;
+    color: #087e7c !important;
+    font-size: 13px !important;
+}
+
+.pdf-generating .section-heading h2 {
+    font-size: 12px !important;
+}
+
+.pdf-generating .section-heading h2::after {
+    height: 2px !important;
+    margin-top: 3px !important;
+}
+
+.pdf-generating .cv-section > p,
+.pdf-generating .detail-list {
+    font-size: 11px !important;
+    line-height: 1.5 !important;
+}
+
+.pdf-generating .subsection-title {
+    margin-bottom: 5px !important;
+    font-size: 11px !important;
+}
+
+.pdf-generating .skill-tags {
+    gap: 4px !important;
+}
+
+.pdf-generating .skill-badge {
+    padding: 3px 6px !important;
+    border-radius: 4px !important;
+    font-size: 9px !important;
+    transform: none !important;
+}
+
+.pdf-generating .timeline {
+    padding-left: 18px !important;
+}
+
+.pdf-generating .timeline-dot {
+    left: -26px !important;
+    width: 10px !important;
+    height: 10px !important;
+}
+
+.pdf-generating .experience-item {
+    margin-bottom: 15px !important;
+    break-inside: auto !important;
+    page-break-inside: auto !important;
+}
+
+.pdf-generating .entry-heading h3,
+.pdf-generating .education-item h3 {
+    font-size: 11px !important;
+}
+
+.pdf-generating .entry-company,
+.pdf-generating .entry-date,
+.pdf-generating .education-description {
+    font-size: 9.5px !important;
+}
+
+.pdf-generating .entry-date {
+    padding: 2px 5px !important;
+}
+
+.pdf-generating .detail-list {
+    padding-left: 16px !important;
+}
+
+.pdf-generating .detail-list li {
+    margin-bottom: 3px !important;
+}
+
 .pdf-generating .education-item {
-    break-inside: avoid;
-    page-break-inside: avoid;
+    gap: 10px !important;
+    margin-bottom: 10px !important;
+    padding: 10px !important;
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
 }
 
+.pdf-generating .education-marker {
+    flex-basis: 26px !important;
+    width: 26px !important;
+    height: 26px !important;
+    font-size: 12px !important;
+}
+
+.pdf-generating .cv-footer {
+    padding: 8px !important;
+    background: #ffffff !important;
+    font-size: 9px !important;
+}
+
+/* Elementos que nunca deben aparecer en el PDF */
+
+.pdf-generating .download-container,
+.pdf-generating .navbar,
+.pdf-generating .site-footer,
+.pdf-generating .no-pdf {
+    display: none !important;
+}
+
+@media print {
+    body {
+        padding: 0 !important;
+        background: #ffffff !important;
+    }
+
+    .navbar,
+    .download-container,
+    .site-footer {
+        display: none !important;
+    }
+
+    .cv {
+        border: 0 !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+    }
+}
