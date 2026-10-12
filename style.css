@@ -790,57 +790,38 @@ body {
 /* ==========================================
    FOTO OPCIONAL
    ========================================== */
-.photo-container{
-    display:none;
-    margin-bottom:18px;
-}
-.photo-container.show{ 
-    display:flex; 
-    justify-content:flex-start;
-    align-items:center;
-}
+/* --- FOTO --- */
+.photo-container{ display:none; flex-shrink:0; }
+.photo-container.show{ display:block !important; }
 .cv-photo{
-    width:95px;  /* más pequeña */
-    height:95px;
+    width:110px; height:110px;
     border-radius:50%;
     object-fit:cover;
-    border:3px solid #16a6a3;
-    box-shadow:0 4px 12px rgba(0,0,0,.15);
+    border:3px solid #86e1db;
 }
-
-/* Si la quieres al lado del nombre, usa esto */
 .header-inner.has-photo{
-    display:flex;
-    gap:20px;
-    align-items:center;
-}
-.header-inner.has-photo .header-text{
-    flex:1;
+    display:flex; gap:24px; align-items:center;
 }
 
-/* MODO PDF */
-.pdf-generating {
-    width: 794px !important;
-    max-width: 794px !important;
-    margin: 0 !important;
-    overflow: visible !important;
-    height: auto !important;
-    border: 0 !important;
-    border-radius: 0 !important;
-    box-shadow: none !important;
-    background: #ffffff !important;
+/* --- PDF  --- */
+.pdf-generating{
+    width:794px !important;
+    overflow:visible !important;
+    height:auto !important;
+    border:0 !important;
+    box-shadow:none !important;
+    background:#fff !important;
 }
-
-.pdf-generating .cv,
-.pdf-generating .cv-content,
-.pdf-generating .cv-header {
-    overflow: visible !important;
-    height: auto !important;
+.pdf-generating .cv, 
+.pdf-generating .cv-content{
+    overflow:visible !important;
+    height:auto !important;
 }
-
-.pdf-generating .cv-header {
-    background: #ffffff !important;
-    color: #17324d !important;
-    border-top: 4px solid #16a6a3 !important;
-    border-bottom: 1px solid #dce2e8 !important;
+.pdf-generating.with-photo .photo-container{
+    display:block !important;
+}
+.pdf-generating .cv-header{
+    background:#fff !important;
+    color:#17324d !important;
+    border-top:4px solid #16a6a3 !important;
 }
