@@ -190,25 +190,24 @@ body {
    MODO PDF 
    ========================================== */
 .pdf-generating{
-    width:794px !important;
-    overflow:visible !important;
-    height:auto !important;
+    width: 750px !important;
+    margin: 0 !important;
+    padding: 0 !important;
     border:0 !important;
     box-shadow:none !important;
     background:#fff !important;
+    overflow:visible !important;
 }
-.pdf-generating .cv, 
+.pdf-generating .cv{
+    width: 100% !important;
+    max-width: 100% !important;
+    border:0 !important;
+}
 .pdf-generating .cv-content{
-    overflow:visible !important;
-    height:auto !important;
-    border:0 !important;
-    box-shadow:none !important;
+    padding: 24px 32px !important; 
 }
-.pdf-generating .cv-header{
-    background:#fff !important;
-    color:#17324d !important;
-    border-top:4px solid #16a6a3 !important;
-    border-bottom: 1px solid #dce2e8 !important;
+.pdf-generating .header-inner{
+    padding: 28px 32px !important;
 }
 .pdf-generating .eyebrow,
 .pdf-generating .cv-header h1,
