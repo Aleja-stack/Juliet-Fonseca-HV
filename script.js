@@ -1,14 +1,25 @@
 document.addEventListener('DOMContentLoaded', () => {
   const btn = document.getElementById('download-pdf');
   const element = document.getElementById('cv-content');
+  const checkFoto = document.getElementById('check-foto');
+  const fotoContainer = document.querySelector('.photo-container');
 
-  if (!btn || !element) return;
+  if (!btn || !element) {
+    console.log("No encontré el botón o el cv-content");
+    return;
+  }
 
   btn.addEventListener('click', async () => {
-    btn.innerHTML = '<i class="bi bi-hourglass-split me-2"></i> Generando...';
+    const originalText = btn.innerHTML;
+    btn.innerHTML = 'Generando...';
     btn.disabled = true;
 
-    // Agrega clase para ocultar botón en el PDF
+    // Manejo de la foto según el switch
+    const incluirFoto = checkFoto ? checkFoto.checked : true;
+    if (fotoContainer) {
+      fotoContainer.style.display = incluirFoto ? '' : 'none';
+    }
+
     element.classList.add('pdf-generating');
 
     const opt = {
@@ -21,9 +32,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     try {
       await html2pdf().set(opt).from(element).save();
+    } catch (e) {
+      console.error(e);
+      alert("Error generando PDF");
     } finally {
       element.classList.remove('pdf-generating');
-      btn.innerHTML = '<i class="bi bi-download me-2"></i> Descargar PDF';
+      if (fotoContainer) fotoContainer.style.display = '';
+      btn.innerHTML = originalText;
       btn.disabled = false;
     }
   });
