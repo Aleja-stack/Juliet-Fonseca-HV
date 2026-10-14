@@ -22,7 +22,7 @@ body {
 .cv { 
    background:white; 
    border-radius:16px; 
-   overflow:hidden; 
+   overflow:visible; 
    box-shadow:0 10px 30px rgba(0,0,0,.08); 
 }
 
@@ -52,8 +52,7 @@ body {
    flex:0 0 110px; 
    border-radius:14px; 
    overflow:hidden; 
-   border:3px 
-   solid rgba(255,255,255,.3); 
+   border:3px solid rgba(255,255,255,.3); 
 }
 
 .cv-photo { 
@@ -151,8 +150,7 @@ body {
    font-weight:800; 
    color:#142f4d; 
    margin:0; 
-   border-bottom:3px 
-   solid #2bb5b0; 
+   border-bottom:3px solid #2bb5b0; 
    padding-bottom:2px; 
 }
 
@@ -285,6 +283,7 @@ body {
    color:#8a9aa8; 
    font-size:.85rem; 
 }
+
 
 /* Responsive */
 @media(max-width:600px) {
