@@ -1,107 +1,227 @@
-/* ===== Diseño ===== */
-:root {
-    --navy: #17324d;
-    --navy-light: #244762;
-    --turquoise: #16a6a3;
-    --turquoise-dark: #087e7c;
-    --text: #344256;
-    --muted: #718096;
-    --border: #e1e8ef;
-    --surface: #ffffff;
-    --surface-soft: #f2f8fb;
-    --background: #edf3f8;
-}
-* { 
-    box-sizing: border-box; 
+
+/* =========================================================
+   HOJA DE VIDA - JULIET FONSECA.
+   ========================================================= */
+
+* {
+  box-sizing: border-box;
 }
 
-html { 
-    scroll-behavior: smooth; 
+html {
+  scroll-behavior: smooth;
 }
 
-body {
-    margin: 0;
-    background: radial-gradient(ellipse at top left, #dff4f4 0, transparent 36%), var(--background);
-    color: var(--text);
-    font-family: Inter, "Segoe UI", Arial, sans-serif;
-    font-size: 15px;
-    line-height: 1.65;
+img {
+  max-width: 100%;
+  height: auto;
 }
 
-.navbar-custom { 
-    background: linear-gradient(110deg, var(--navy), #204b65); border-bottom: 3px solid var(--turquoise); 
-}
-
-.cv-shell { 
-    width: 100%; max-width: 960px; 
+.cv-shell {
+  width: 100%;
+  min-width: 0;
 }
 
 .cv {
-    position: relative; overflow: hidden; background: var(--surface);
-    border: 1px solid rgba(23,50,77,0.07); border-radius: 20px;
-    box-shadow: 0 20px 60px rgba(23,50,77,0.12);
-}
-.cv-header {
-    background: radial-gradient(circle at 95% 10%, rgba(22,166,163,0.19), transparent 28%), linear-gradient(125deg, #17324d 0%, #204c67 72%, #176d78 100%);
-    color: white;
+  position: relative;
+  min-width: 0;
+  margin-inline: auto;
 }
 
-.header-accent { 
-    height: 5px; background: linear-gradient(90deg, #16a6a3, #70e0d2, #16a6a3); 
+.cv,
+.cv * {
+  overflow-wrap: break-word;
 }
 
-.header-inner { 
-    padding: 46px 54px 40px; 
+.cv-header,
+.cv-section,
+.timeline,
+.skill-tags,
+.skill-badge {
+  min-width: 0;
 }
 
-.header-inner.has-photo { 
-    display:flex; gap:24px; align-items:center; 
+/* ---------- Conservación del diseño en pantalla ---------- */
+
+/* No se redefinen los colores, fuentes ni sombras originales.
+   Se conservan los estilos visuales definidos por el proyecto. */
+
+.cv-header img {
+  max-width: 100%;
 }
 
-.photo-container { 
-    display:block; flex-shrink:0; 
+.download-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
 }
 
-.cv-photo { 
-    width:110px; height:110px; border-radius:50%; object-fit:cover; border:3px solid #86e1db; 
+.btn-download {
+  max-width: 100%;
 }
 
-.eyebrow { 
-    color: #86e1db; font-size: 0.75rem; font-weight: 800; letter-spacing: 2px; 
+/* ---------- Adaptación a dispositivos móviles ---------- */
+
+@media screen and (max-width: 768px) {
+  .cv-shell {
+    width: 100%;
+    padding-inline: 12px;
+  }
+
+  .cv {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .header-inner {
+    flex-wrap: wrap;
+    min-width: 0;
+  }
+
+  .name-break {
+    overflow-wrap: anywhere;
+  }
+
+  .contact-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .timeline {
+    min-width: 0;
+  }
+
+  .download-container {
+    gap: 10px;
+  }
+
+  .btn-download {
+    white-space: normal;
+  }
 }
 
-.cv-header h1 { 
-    margin: 0 0 14px; color: #ffffff; font-size: clamp(2rem, 4vw, 2.9rem); font-weight: 800; line-height: 1.12; 
+/* ---------- Clase temporal utilizada durante la exportación ---------- */
+
+.cv-generating-pdf {
+  background: #ffffff !important;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
 }
 
-.headline { 
-    margin: 0; color: #ffffff; font-size: 1.15rem; font-weight: 650; 
+.cv-generating-pdf #hoja-vida {
+  width: 100%;
+  max-width: none;
+  margin: 0 auto;
+  box-sizing: border-box;
+  overflow: visible;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
 }
 
-.specialization { margin: 8px 0 24px; color: #d5e7f0; }
-.contact-grid { display: flex; flex-wrap: wrap; gap: 11px 22px; }
-.contact-item { display: inline-flex; align-items: center; gap: 9px; color: #f1f7fa; font-size: 0.88rem; text-decoration: none; }
-.profile-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 23px; }
-.profile-links a { display: inline-flex; padding: 8px 14px; border: 1px solid rgba(255,255,255,0.28); border-radius: 8px; background: rgba(255,255,255,0.07); color: white; font-size: 0.84rem; font-weight: 650; text-decoration: none; }
-.cv-content { padding: 38px 54px 30px; }
-.cv-section { margin-bottom: 34px; }
-.section-heading { display: flex; align-items: center; gap: 13px; margin-bottom: 18px; }
-.section-icon { display: inline-flex; flex: 0 0 42px; align-items: center; justify-content: center; width: 42px; height: 42px; border: 1px solid #d2efed; border-radius: 12px; background: #eaf8f7; color: var(--turquoise-dark); font-size: 1.2rem; }
-.section-heading h2 { margin: 0; color: var(--navy); font-size: 1.15rem; font-weight: 800; }
-.section-heading h2::after { display: block; width: 42px; height: 3px; margin-top: 7px; border-radius: 4px; background: var(--turquoise); content: ""; }
-.timeline { position: relative; margin-left: 9px; padding-left: 25px; border-left: 2px solid #d8eeed; }
-.experience-item { position: relative; margin-bottom: 27px; }
-.timeline-dot { position: absolute; top: 5px; left: -33px; width: 14px; height: 14px; border: 3px solid #d2f1ee; border-radius: 50%; background: var(--turquoise-dark); }
-.entry-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px 20px; margin-bottom: 11px; }
-.entry-heading h3, .education-item h3 { margin: 0 0 5px; color: var(--navy); font-size: 1rem; font-weight: 800; }
-.entry-company { margin: 0; color: var(--turquoise-dark); font-size: 0.87rem; font-weight: 700; }
-.entry-date { flex: 0 0 auto; padding: 5px 10px; border: 1px solid #d8e8f1; border-radius: 7px; background: #f0f6fa; color: var(--navy-light); font-size: 0.77rem; font-weight: 750; }
-.education-item { display: flex; align-items: flex-start; gap: 15px; margin-bottom: 19px; padding: 18px; border: 1px solid var(--border); border-radius: 12px; background: #fbfdff; }
-.education-marker { display: inline-flex; flex: 0 0 39px; align-items: center; justify-content: center; width: 39px; height: 39px; border-radius: 10px; background: #e6f7f5; color: var(--turquoise-dark); }
-.skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
-.skill-badge { display: inline-flex; padding: 7px 12px; border: 1px solid #c9eae8; border-radius: 8px; background: #eaf8f7; color: #176765; font-size: 0.82rem; font-weight: 700; }
-.cv-footer { padding: 16px 20px; border-top: 1px solid var(--border); background: #f7fafc; color: var(--muted); font-size: 0.8rem; text-align: center; }
-.download-container { padding: 26px 12px 10px; text-align: center; }
-.btn-download { padding: 13px 23px; border: 0; border-radius: 10px; background: linear-gradient(110deg, var(--navy), #205b70); color: white; font-weight: 750; cursor: pointer; }
-.site-footer { padding: 22px 16px; color: #718096; font-size: 0.82rem; text-align: center; 
-             }
+/* Si se excluye la foto, el encabezado puede ocupar todo el ancho. */
+.cv-generating-pdf #photo-container.pdf-no-photo {
+  display: none !important;
+}
+
+.cv-generating-pdf .header-inner.pdf-no-photo {
+  grid-template-columns: minmax(0, 1fr) !important;
+}
+
+/* ---------- Reglas de impresión del navegador ---------- */
+
+@page {
+  size: A4 portrait;
+  margin: 12mm;
+}
+
+@media print {
+  html,
+  body {
+    width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #ffffff !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  body {
+    overflow: visible !important;
+  }
+
+  /* Evita que el contenedor exterior reduzca el área imprimible. */
+  .cv-shell {
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+  }
+
+  #hoja-vida,
+  .cv {
+    width: 100% !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+    overflow: visible !important;
+    box-shadow: none !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Oculta controles, no el contenido profesional. */
+  .download-container,
+  .navbar,
+  .site-footer {
+    display: none !important;
+  }
+
+  /* Mantiene los títulos junto al contenido que introducen. */
+  .cv-section h2,
+  .cv-section h3,
+  .cv-section h4,
+  .entry-heading,
+  .timeline h2,
+  .timeline h3 {
+    break-after: avoid !important;
+    page-break-after: avoid !important;
+  }
+
+  /* Evita dividir tarjetas y bloques pequeños entre páginas. */
+  .cv-section,
+  .experience-item,
+  .education-item,
+  .skill-tags,
+  .entry-heading,
+  .timeline article,
+  .timeline li {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  /* No separar títulos de sus primeros párrafos. */
+  .cv-section h2 + p,
+  .cv-section h3 + p,
+  .entry-heading + p {
+    break-before: avoid;
+    page-break-before: avoid;
+  }
+
+  /* Conserva las tarjetas, los fondos y los colores originales. */
+  .cv-header,
+  .cv-section,
+  .skill-badge,
+  .experience-item,
+  .education-item {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  img {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
