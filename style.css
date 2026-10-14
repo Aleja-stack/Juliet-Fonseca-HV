@@ -11,8 +11,14 @@
     --surface-soft: #f2f8fb;
     --background: #edf3f8;
 }
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+* { 
+    box-sizing: border-box; 
+}
+
+html { 
+    scroll-behavior: smooth; 
+}
+
 body {
     margin: 0;
     background: radial-gradient(ellipse at top left, #dff4f4 0, transparent 36%), var(--background);
@@ -21,8 +27,15 @@ body {
     font-size: 15px;
     line-height: 1.65;
 }
-.navbar-custom { background: linear-gradient(110deg, var(--navy), #204b65); border-bottom: 3px solid var(--turquoise); }
-.cv-shell { width: 100%; max-width: 960px; }
+
+.navbar-custom { 
+    background: linear-gradient(110deg, var(--navy), #204b65); border-bottom: 3px solid var(--turquoise); 
+}
+
+.cv-shell { 
+    width: 100%; max-width: 960px; 
+}
+
 .cv {
     position: relative; overflow: hidden; background: var(--surface);
     border: 1px solid rgba(23,50,77,0.07); border-radius: 20px;
@@ -32,14 +45,39 @@ body {
     background: radial-gradient(circle at 95% 10%, rgba(22,166,163,0.19), transparent 28%), linear-gradient(125deg, #17324d 0%, #204c67 72%, #176d78 100%);
     color: white;
 }
-.header-accent { height: 5px; background: linear-gradient(90deg, #16a6a3, #70e0d2, #16a6a3); }
-.header-inner { padding: 46px 54px 40px; }
-.header-inner.has-photo{ display:flex; gap:24px; align-items:center; }
-.photo-container{ display:block; flex-shrink:0; }
-.cv-photo{ width:110px; height:110px; border-radius:50%; object-fit:cover; border:3px solid #86e1db; }
-.eyebrow { color: #86e1db; font-size: 0.75rem; font-weight: 800; letter-spacing: 2px; }
-.cv-header h1 { margin: 0 0 14px; color: #ffffff; font-size: clamp(2rem, 4vw, 2.9rem); font-weight: 800; line-height: 1.12; }
-.headline { margin: 0; color: #ffffff; font-size: 1.15rem; font-weight: 650; }
+
+.header-accent { 
+    height: 5px; background: linear-gradient(90deg, #16a6a3, #70e0d2, #16a6a3); 
+}
+
+.header-inner { 
+    padding: 46px 54px 40px; 
+}
+
+.header-inner.has-photo { 
+    display:flex; gap:24px; align-items:center; 
+}
+
+.photo-container { 
+    display:block; flex-shrink:0; 
+}
+
+.cv-photo { 
+    width:110px; height:110px; border-radius:50%; object-fit:cover; border:3px solid #86e1db; 
+}
+
+.eyebrow { 
+    color: #86e1db; font-size: 0.75rem; font-weight: 800; letter-spacing: 2px; 
+}
+
+.cv-header h1 { 
+    margin: 0 0 14px; color: #ffffff; font-size: clamp(2rem, 4vw, 2.9rem); font-weight: 800; line-height: 1.12; 
+}
+
+.headline { 
+    margin: 0; color: #ffffff; font-size: 1.15rem; font-weight: 650; 
+}
+
 .specialization { margin: 8px 0 24px; color: #d5e7f0; }
 .contact-grid { display: flex; flex-wrap: wrap; gap: 11px 22px; }
 .contact-item { display: inline-flex; align-items: center; gap: 9px; color: #f1f7fa; font-size: 0.88rem; text-decoration: none; }
@@ -65,11 +103,6 @@ body {
 .cv-footer { padding: 16px 20px; border-top: 1px solid var(--border); background: #f7fafc; color: var(--muted); font-size: 0.8rem; text-align: center; }
 .download-container { padding: 26px 12px 10px; text-align: center; }
 .btn-download { padding: 13px 23px; border: 0; border-radius: 10px; background: linear-gradient(110deg, var(--navy), #205b70); color: white; font-weight: 750; cursor: pointer; }
-.site-footer { padding: 22px 16px; color: #718096; font-size: 0.82rem; text-align: center; }
+.site-footer { padding: 22px 16px; color: #718096; font-size: 0.82rem; text-align: center; 
+             }
 
-/* ===== FIX PDF  ===== */
-.html2pdf__page-break{
-  display: block !important;
-  break-before: page !important;
-  page-break-before: always !important;
-}
