@@ -1,44 +1,40 @@
-document.addEventListener('DOMContentLoaded', () => {
+window.addEventListener('load', () => {
+  console.log("script cargado");
   const btn = document.getElementById('btn-descargar');
   const cv = document.getElementById('hoja-vida');
-  const checkFoto = document.getElementById('check-foto');
-  const foto = document.getElementById('photo-container');
-  const estado = document.getElementById('estado-descarga');
+  
+  if (!btn) { alert("No encuentro el botón btn-descargar"); return; }
+  if (!cv) { alert("No encuentro hoja-vida"); return; }
+  if (typeof html2pdf === 'undefined') { alert("No cargó html2pdf, revisa internet"); return; }
 
-  if (!btn || !cv) return;
+  console.log("Todo listo, botón activo");
 
-  btn.addEventListener('click', async () => {
-    const textoOriginal = btn.innerHTML;
-    btn.innerHTML = '<i class="bi bi-hourglass-split me-2"></i> Generando PDF...';
+  btn.onclick = async () => {
     btn.disabled = true;
-    if (estado) estado.textContent = 'Preparando tu hoja de vida...';
-
-    // Foto según el switch
-    const incluirFoto = checkFoto ? checkFoto.checked : true;
-    if (foto) foto.style.display = incluirFoto ? '' : 'none';
+    btn.innerHTML = 'Generando...';
+    
+    const checkFoto = document.getElementById('check-foto');
+    const foto = document.getElementById('photo-container');
+    if (foto) foto.style.display = (checkFoto && !checkFoto.checked) ? 'none' : '';
 
     cv.classList.add('pdf-generating');
 
-    const opt = {
-      margin: 0,
-      filename: 'HV_Juliet_Fonseca.pdf',
-      image: { type: 'jpeg', quality: 0.98 },
-      html2canvas: { scale: 2, useCORS: true, scrollY: 0 },
-      jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
-    };
-
     try {
-      await html2pdf().set(opt).from(cv).save();
-      if (estado) estado.textContent = '¡Listo! PDF descargado.';
-    } catch (err) {
-      console.error(err);
-      if (estado) estado.textContent = 'Error al generar el PDF.';
-    } finally {
-      cv.classList.remove('pdf-generating');
-      if (foto) foto.style.display = '';
-      btn.innerHTML = textoOriginal;
-      btn.disabled = false;
-      setTimeout(() => { if (estado) estado.textContent = ''; }, 3000);
+      await html2pdf().set({
+        margin: 0,
+        filename: 'HV_Juliet_Fonseca_2027.pdf',
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 2, useCORS: true },
+        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+      }).from(cv).save();
+    } catch(e) {
+      alert("Error: " + e.message);
+      console.error(e);
     }
-  });
+    
+    cv.classList.remove('pdf-generating');
+    if (foto) foto.style.display = '';
+    btn.disabled = false;
+    btn.innerHTML = '<i class="bi bi-file-earmark-pdf me-2"></i> Descargar hoja de vida en PDF';
+  };
 });
