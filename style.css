@@ -289,7 +289,12 @@ body {
 @media(max-width:600px) {
    
    .header-inner { 
-      flex-direction:column; 
+     display:flex;
+     gap:24px;
+     padding:32px;
+     aling-items:center;
+     flex-wrap:wrap;
+     flex-direction:column; 
    } 
    
    .photo-container { 
