@@ -828,9 +828,41 @@ body {
 }
 
 @media print {
-.entry, .certificado, .card {
-    page-break-inside: avoid !important;
-    break-inside: avoid !important;
-    margin-bottom: 20px;
-  }      
+    body {
+        padding: 0 !important;
+        background: #ffffff !important;
+        height: auto !important;
+        overflow: visible !important;
+    }
+    .navbar,
+    .download-container,
+    .site-footer {
+        display: none !important;
+    }
+    .cv {
+        border: 0 !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        height: auto !important;
+        overflow: visible !important;
+    }
+    html {
+        height: auto !important;
+        overflow: visible !important;
+    }
+    @page {
+        margin: 12mm 10mm 12mm 10mm;
+    }
+    .container, section, .cv-section {
+        height: auto !important;
+        min-height: auto !important;
+        padding-top: 0 !important;
+        margin-top: 0 !important;
+        overflow: visible !important;
+    }
+    .card, .entry {
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+        margin-bottom: 25px !important;
+    }
 }
