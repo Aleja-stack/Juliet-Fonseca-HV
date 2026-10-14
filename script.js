@@ -20,15 +20,13 @@ document.addEventListener('DOMContentLoaded', () => {
         estado.textContent = 'Generando PDF...';
         btn.disabled = true;
 
-        const opt = {
-            margin: [10, 10, 10, 10], // 10mm arriba, derecha, abajo, izquierda
-            filename: 'HV Juliet Fonseca 2027-1.pdf',
-            image: { type: 'jpeg', quality: 0.98 },
-            html2canvas: { 
-                scale: 2, 
-                useCORS: true,
-                scrollY: 0 
-            },
+           const opt = {
+              margin: 0,
+              filename: 'HV_Juliet_Fonseca.pdf',
+              image: { type: 'jpeg', quality: 0.98 },
+              html2canvas: { scale: 2, useCORS: true, scrollY: 0 },
+              jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            };
             jsPDF: { 
                 unit: 'mm', 
                 format: 'a4', 
