@@ -1,227 +1,300 @@
-
-/* =========================================================
-   HOJA DE VIDA - JULIET FONSECA.
-   ========================================================= */
-
-* {
-  box-sizing: border-box;
+:root{
+  --blue-dark:#12324f;
+  --blue-teal:#1a4a5e;
+  --teal:#2bb5b0;
+  --bg:#f6f8f9;
 }
 
-html {
-  scroll-behavior: smooth;
+body { 
+   background:var(--bg); 
+   font-family:system-ui,-apple-system,Segoe UI,Roboto; 
+   color:#2a3440; 
 }
 
-img {
-  max-width: 100%;
-  height: auto;
+.navbar-custom { 
+   background:linear-gradient(90deg,var(--blue-dark),var(--blue-teal)); 
 }
 
-.cv-shell {
-  width: 100%;
-  min-width: 0;
+.cv-shell { 
+   max-width:850px; 
 }
 
-.cv {
-  position: relative;
-  min-width: 0;
-  margin-inline: auto;
+.cv { 
+   background:white; 
+   border-radius:16px; 
+   overflow:hidden; 
+   box-shadow:0 10px 30px rgba(0,0,0,.08); 
 }
 
-.cv,
-.cv * {
-  overflow-wrap: break-word;
+.cv-header { 
+   background:linear-gradient(135deg,#14344f 0%,#1b4a5a 60%,#255f65 100%); 
+   color:white; 
+   position:relative; 
+   padding:0; 
 }
 
-.cv-header,
-.cv-section,
-.timeline,
-.skill-tags,
-.skill-badge {
-  min-width: 0;
+.header-accent { 
+   height:5px; 
+   background:linear-gradient(90deg,#7ee8e3,#2bb5b0); 
 }
 
-/* ---------- Conservación del diseño en pantalla ---------- */
-
-/* No se redefinen los colores, fuentes ni sombras originales.
-   Se conservan los estilos visuales definidos por el proyecto. */
-
-.cv-header img {
-  max-width: 100%;
+.header-inner { 
+   display:flex; 
+   gap:24px; 
+   padding:32px; 
+   align-items:flex-start; 
+   flex-wrap:wrap; 
 }
 
-.download-container {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 12px;
+.photo-container { 
+   width:110px; 
+   height:110px; 
+   flex:0 0 110px; 
+   border-radius:14px; 
+   overflow:hidden; 
+   border:3px 
+   solid rgba(255,255,255,.3); 
+}
+
+.cv-photo { 
+   width:100%; 
+   height:100%; 
+   object-fit:cover; 
+}
+
+.header-text h1 { 
+   font-size:2rem; 
+   font-weight:800; 
+   line-height:1.1; 
+   margin:8px 0; 
+}
+
+.eyebrow { 
+   font-size:.75rem; 
+   letter-spacing:.12em; 
+   color:#7ee8e3; 
+   font-weight:700; 
+   text-transform:uppercase; 
+}
+
+.headline { 
+   font-weight:600; 
+   opacity:.95; 
+   margin-bottom:4px; 
+}
+
+.specialization { 
+   opacity:.8; 
+   margin-bottom:14px; 
+}
+
+.contact-grid { 
+   display:flex; 
+   flex-wrap:wrap; 
+   gap:14px; 
+   margin:12px 0; 
+}
+
+.contact-item { 
+   color:#dbeef0; 
+   text-decoration:none; 
+   font-size:.92rem; 
+   display:inline-flex; 
+   gap:6px; 
+   align-items:center; 
+}
+
+.profile-links { 
+   display:flex; 
+   gap:10px; 
+   margin-top:10px; 
+}
+
+.profile-links a { 
+   background:rgba(255,255,255,.08); 
+   border:1px solid rgba(255,255,255,.2); 
+   color:white; 
+   padding:6px 12px; 
+   border-radius:8px; 
+   text-decoration:none; 
+   font-size:.85rem; 
+}
+
+.cv-content { 
+   padding:28px 32px; 
+}
+
+.cv-section { 
+   margin-bottom:32px; 
+}
+
+.section-heading { 
+   display:flex; 
+   gap:12px; 
+   align-items:center; 
+   margin-bottom:14px; 
+}
+
+.section-icon {  
+   width:38px; 
+   height:38px; 
+   background:#e6f5f4; 
+   color:#14837f; 
+   border-radius:10px; 
+   display:grid; 
+   place-items:center; 
+   font-size:1.2rem; 
+}
+
+.section-heading h2 { 
+   font-size:1.15rem; 
+   font-weight:800; 
+   color:#142f4d; 
+   margin:0; 
+   border-bottom:3px 
+   solid #2bb5b0; 
+   padding-bottom:2px; 
+}
+
+.subsection-title { 
+   font-size:1rem; 
+   color:#33495d; 
+   font-weight:600; 
+   margin-top:8px; 
+}
+
+.skill-tags { 
+   display:flex; 
+   flex-wrap:wrap; 
+   gap:8px; 
+   margin-top:8px; 
+}
+
+.skill-badge { 
+   background:#eef3f6; 
+   border:1px solid #dbe6eb; 
+   padding:4px 10px; 
+   border-radius:20px; 
+   font-size:.82rem; 
+}
+
+.skill-badge.soft {  
+   background:#f3f1ff; 
+}
+
+.timeline { 
+   border-left:2px dashed #d6e4e8; 
+   margin-left:12px; 
+   padding-left:20px; 
+}
+
+.experience-item { 
+   position:relative; 
+   margin-bottom:22px; 
+}
+
+.timeline-dot {  
+   position:absolute; 
+   left:-27px; 
+   top:4px; 
+   width:12px; 
+   height:12px; 
+   background:#2bb5b0; 
+   border-radius:50%; 
+   border:3px solid white; 
+   box-shadow:0 0 0 2px #2bb5b0; 
+}
+
+.entry-heading {  
+   display:flex;  
+   justify-content:space-between; 
+   gap:12px; 
+   flex-wrap:wrap; 
+}
+
+.entry-heading h3 { 
+   font-size:1rem; 
+   font-weight:700; 
+   margin:0; 
+}
+
+.entry-company { 
+   font-size:.85rem; 
+   color:#5a6f80; 
+   margin:0; 
+}
+
+.entry-date { 
+   font-size:.8rem;  
+   background:#e6f5f4;  
+   color:#0f6e6b; 
+   padding:2px 8px; 
+   border-radius:12px; 
+}
+
+.detail-list { 
+   margin-top:6px; 
+   font-size:.92rem; 
+}
+
+.education-item { 
+   display:flex; 
+   gap:12px; 
+   margin-bottom:16px; 
+}
+
+.education-marker { 
+   width:32px; 
+   height:32px; 
+   background:#eef3f6; 
+   border-radius:50%; 
+   display:grid; 
+   place-items:center; 
+   flex:0 0 32px; 
+}
+
+.cv-footer { 
+   text-align:center; 
+   font-size:.8rem; 
+   color:#8a9aa8; 
+   padding:16px; 
+   border-top:1px solid #eef2f4; 
+}
+
+.download-container { 
+   text-align:center; 
+   padding:24px; 
 }
 
 .btn-download {
-  max-width: 100%;
+   background:var(--blue-dark); 
+   color:white; 
+   border-radius:10px; 
+   padding:10px 22px; 
+   border:none; 
 }
 
-/* ---------- Adaptación a dispositivos móviles ---------- */
-
-@media screen and (max-width: 768px) {
-  .cv-shell {
-    width: 100%;
-    padding-inline: 12px;
-  }
-
-  .cv {
-    width: 100%;
-    max-width: 100%;
-  }
-
-  .header-inner {
-    flex-wrap: wrap;
-    min-width: 0;
-  }
-
-  .name-break {
-    overflow-wrap: anywhere;
-  }
-
-  .contact-grid {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  .timeline {
-    min-width: 0;
-  }
-
-  .download-container {
-    gap: 10px;
-  }
-
-  .btn-download {
-    white-space: normal;
-  }
+.btn-download:hover { 
+   background:#1b4568; 
+   color:white; 
 }
 
-/* ---------- Clase temporal utilizada durante la exportación ---------- */
-
-.cv-generating-pdf {
-  background: #ffffff !important;
-  -webkit-print-color-adjust: exact;
-  print-color-adjust: exact;
+.site-footer { 
+   text-align:center; 
+   padding:16px; 
+   color:#8a9aa8; 
+   font-size:.85rem; 
 }
 
-.cv-generating-pdf #hoja-vida {
-  width: 100%;
-  max-width: none;
-  margin: 0 auto;
-  box-sizing: border-box;
-  overflow: visible;
-  -webkit-print-color-adjust: exact;
-  print-color-adjust: exact;
-}
-
-/* Si se excluye la foto, el encabezado puede ocupar todo el ancho. */
-.cv-generating-pdf #photo-container.pdf-no-photo {
-  display: none !important;
-}
-
-.cv-generating-pdf .header-inner.pdf-no-photo {
-  grid-template-columns: minmax(0, 1fr) !important;
-}
-
-/* ---------- Reglas de impresión del navegador ---------- */
-
-@page {
-  size: A4 portrait;
-  margin: 12mm;
-}
-
-@media print {
-  html,
-  body {
-    width: 100% !important;
-    min-width: 0 !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    background: #ffffff !important;
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
-  }
-
-  body {
-    overflow: visible !important;
-  }
-
-  /* Evita que el contenedor exterior reduzca el área imprimible. */
-  .cv-shell {
-    width: 100% !important;
-    max-width: none !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    overflow: visible !important;
-  }
-
-  #hoja-vida,
-  .cv {
-    width: 100% !important;
-    max-width: none !important;
-    min-width: 0 !important;
-    margin: 0 auto !important;
-    padding: 0 !important;
-    box-sizing: border-box !important;
-    overflow: visible !important;
-    box-shadow: none !important;
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
-  }
-
-  /* Oculta controles, no el contenido profesional. */
-  .download-container,
-  .navbar,
-  .site-footer {
-    display: none !important;
-  }
-
-  /* Mantiene los títulos junto al contenido que introducen. */
-  .cv-section h2,
-  .cv-section h3,
-  .cv-section h4,
-  .entry-heading,
-  .timeline h2,
-  .timeline h3 {
-    break-after: avoid !important;
-    page-break-after: avoid !important;
-  }
-
-  /* Evita dividir tarjetas y bloques pequeños entre páginas. */
-  .cv-section,
-  .experience-item,
-  .education-item,
-  .skill-tags,
-  .entry-heading,
-  .timeline article,
-  .timeline li {
-    break-inside: avoid;
-    page-break-inside: avoid;
-  }
-
-  /* No separar títulos de sus primeros párrafos. */
-  .cv-section h2 + p,
-  .cv-section h3 + p,
-  .entry-heading + p {
-    break-before: avoid;
-    page-break-before: avoid;
-  }
-
-  /* Conserva las tarjetas, los fondos y los colores originales. */
-  .cv-header,
-  .cv-section,
-  .skill-badge,
-  .experience-item,
-  .education-item {
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
-  }
-
-  img {
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
-  }
+/* Responsive */
+@media(max-width:600px) {
+   
+   .header-inner { 
+      flex-direction:column; 
+   } 
+   
+   .photo-container { 
+      width:90px; 
+      height:90px; 
+   } 
 }
