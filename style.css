@@ -189,6 +189,12 @@ body {
 /* ==========================================
    MODO PDF 
    ========================================== */
+/* Solo para el salto de página del PDF */
+.html2pdf__page-break{
+  display: block !important;
+  break-before: page !important;
+  page-break-before: always !important;
+}
 .pdf-generating .eyebrow,
 .pdf-generating .cv-header h1,
 .pdf-generating .headline,
@@ -201,17 +207,6 @@ body {
     break-inside: auto !important;
     page-break-inside: auto !important;
 }
-
-.html2pdf__page-break{
-  display: block !important;
-  break-before: page !important;
-  page-break-before: always !important;
-  height: 0 !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  border: 0 !important;
-}
-
 .pdf-generating .download-container,
 .pdf-generating .navbar,
 .pdf-generating .site-footer { display: none !important; }
