@@ -73,6 +73,3 @@ body {
   break-before: page !important;
   page-break-before: always !important;
 }
-.pdf-generating .download-container,
-.pdf-generating .site-footer { display: none !important; }
-.pdf-generating .cv { box-shadow: none !important; border: none !important; border-radius: 0 !important; }
