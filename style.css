@@ -785,12 +785,6 @@ body {
         border-radius: 0 !important;
         box-shadow: none !important;
     }
-           
-  .entry, .certificado, .card {
-    page-break-inside: avoid !important;
-    break-inside: avoid !important;
-    margin-bottom: 20px;
-  }
 } 
 
 /* ==========================================
@@ -831,4 +825,13 @@ body {
     background:#fff !important;
     color:#17324d !important;
     border-top:4px solid #16a6a3 !important;
+}
+
+@media print {
+.entry, .certificado, .card {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    margin-bottom: 20px;
+  }
+      
 }
