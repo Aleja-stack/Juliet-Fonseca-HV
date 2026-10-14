@@ -106,3 +106,57 @@ body {
 .site-footer { padding: 22px 16px; color: #718096; font-size: 0.82rem; text-align: center; 
              }
 
+/* === AJUSTES SOLO PARA EXPORTACIÓN PDF === */
+
+/* Para html2pdf - clase temporal que pone el script */
+.pdf-exporting {
+  font-size: 11pt !important; /* cuerpo legible */
+  line-height: 1.45 !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+.pdf-exporting h1 {
+  font-size: 20pt !important; /* jerarquía clara */
+  line-height: 1.2 !important;
+}
+
+.pdf-exporting h2, 
+.pdf-exporting .cv-section-title {
+  font-size: 13pt !important;
+  margin-top: 14pt !important;
+  break-after: avoid !important;
+  page-break-after: avoid !important;
+}
+
+.pdf-exporting .subsection-title {
+  font-size: 11.5pt !important;
+  break-after: avoid !important;
+}
+
+.pdf-exporting p,
+.pdf-exporting li,
+.pdf-exporting .detail-list li {
+  font-size: 10.5pt !important;
+}
+
+/* Saltos naturales - evita cortar bloques a la mitad */
+.pdf-exporting .education-item,
+.pdf-exporting .experience-item,
+.pdf-exporting .skill-group,
+.pdf-exporting .habilidad-card {
+  break-inside: avoid !important;
+  page-break-inside: avoid !important;
+}
+
+/* Evita títulos huérfanos al final de página */
+.pdf-exporting .cv-section-title,
+.pdf-exporting .subsection-title {
+  break-after: avoid !important;
+}
+
+/* Para impresión directa del navegador si la usan */
+@media print {
+  .download-container, .site-footer { display: none !important; }
+}
+
