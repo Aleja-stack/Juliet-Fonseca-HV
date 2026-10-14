@@ -785,19 +785,11 @@ body {
         border-radius: 0 !important;
         box-shadow: none !important;
     }
-  #cv-simple h2 {
-    margin-top: 16px;
-    margin-bottom: 8px;
-    break-after: avoid;
-  }
-
-  #cv-simple .cv-item {
-    break-inside: avoid;
-    margin-bottom: 12px;
-  }
-
-  #cv-simple p {
-    overflow-wrap: break-word;
+           
+  .entry, .certificado, .card {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    margin-bottom: 20px;
   }
 } 
 
