@@ -1,52 +1,155 @@
-window.addEventListener('load', () => {
-  const btn = document.getElementById('btn-descargar');
-  const cv = document.getElementById('hoja-vida');
-  const checkFoto = document.getElementById('check-foto');
-  const fotoContainer = document.getElementById('photo-container');
-  const estado = document.getElementById('estado-descarga');
 
-  if (!btn || !cv) return;
+window.addEventListener("load", () => {
+    const btn = document.getElementById("btn-descargar");
+    const cv = document.getElementById("hoja-vida");
+    const checkFoto = document.getElementById("check-foto");
+    const fotoContainer = document.getElementById("photo-container");
+    const foto = document.getElementById("foto-perfil");
+    const estado = document.getElementById("estado-descarga");
 
-  // Por defecto marcado con foto
-  if (checkFoto) checkFoto.checked = true;
+    if (!btn || !cv) return;
 
-  btn.addEventListener('click', async () => {
-    const conFoto = checkFoto ? checkFoto.checked : true;
-    
-    // Guardamos el display original
-    const displayOriginal = fotoContainer ? fotoContainer.style.display : '';
-    
-    // Si es sin foto, lo ocultamos SOLO para la foto del PDF
-    if (fotoContainer && !conFoto) {
-      fotoContainer.style.display = 'none';
+    // Por defecto, ofrecer la descarga con foto.
+    if (checkFoto) checkFoto.checked = true;
+
+    // Espera a que la foto esté cargada antes de crear el PDF.
+    async function esperarFoto(img) {
+        if (!img) return;
+
+        if (img.complete) {
+            if (img.naturalWidth === 0) {
+                throw new Error("No se pudo cargar la foto.");
+            }
+            return;
+        }
+
+        await new Promise((resolve, reject) => {
+            img.addEventListener("load", resolve, { once: true });
+            img.addEventListener(
+                "error",
+                () => reject(new Error("No se pudo cargar la foto.")),
+                { once: true }
+            );
+        });
     }
 
-    const textoOriginal = btn.innerHTML;
-    btn.innerHTML = '<i class="bi bi-hourglass-split me-2"></i>Generando...';
-    btn.disabled = true;
-    if (estado) estado.textContent = conFoto ? 'Descargando con foto...' : 'Descargando sin foto...';
+    btn.addEventListener("click", async () => {
+        if (typeof html2pdf === "undefined") {
+            if (estado) {
+                estado.textContent =
+                    "No se pudo cargar el generador de PDF. Recarga la página.";
+            }
+            return;
+        }
 
-    try {
-      // Flujo natural: sin windowWidth, sin clases que cambien letras
-      // La info fluye las páginas que necesite hacia abajo
-      await html2pdf().set({
-        margin: 8,
-        filename: `HV_Juliet_Fonseca_${conFoto ? 'con' : 'sin'}_foto.pdf`,
-        image: { type: 'jpeg', quality: 0.98 },
-        html2canvas: { scale: 2, useCORS: true, scrollY: 0 },
-        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
-      }).from(cv).save();
+        const conFoto = checkFoto ? checkFoto.checked : true;
+        const textoOriginal = btn.innerHTML;
 
-      if (estado) estado.textContent = '¡PDF listo!';
-    } catch (e) {
-      console.error(e);
-      if (estado) estado.textContent = 'Error al generar';
-    } finally {
-      // Restauramos todo para que tu web quede igual
-      if (fotoContainer) fotoContainer.style.display = displayOriginal;
-      btn.innerHTML = textoOriginal;
-      btn.disabled = false;
-      setTimeout(() => { if (estado) estado.textContent = ''; }, 2500);
-    }
-  });
+        // Guardar los estilos para restaurarlos después.
+        const displayOriginal = fotoContainer
+            ? fotoContainer.style.display
+            : "";
+
+        const yaTeniaClase = document.body.classList.contains("pdf-export");
+
+        btn.disabled = true;
+        btn.innerHTML =
+            '<i class="bi bi-hourglass-split me-2"></i>Generando PDF...';
+
+        if (estado) {
+            estado.textContent = conFoto
+                ? "Preparando tu hoja de vida con foto..."
+                : "Preparando tu hoja de vida sin foto...";
+        }
+
+        try {
+            if (conFoto) {
+                await esperarFoto(foto);
+            }
+
+            // Activa temporalmente los estilos exclusivos del PDF.
+            document.body.classList.add("pdf-export");
+
+            if (fotoContainer && !conFoto) {
+                fotoContainer.style.display = "none";
+            }
+
+            // Esperar a que el navegador aplique los estilos.
+            await new Promise(resolve =>
+                requestAnimationFrame(() =>
+                    requestAnimationFrame(resolve)
+                )
+            );
+
+            const opciones = {
+                margin: [10, 10, 10, 10],
+                filename: `HV_Juliet_Fonseca_${
+                    conFoto ? "con" : "sin"
+                }_foto.pdf`,
+
+                image: {
+                    type: "jpeg",
+                    quality: 0.98
+                },
+
+                html2canvas: {
+                    scale: 2,
+                    useCORS: true,
+                    backgroundColor: "#ffffff",
+                    scrollY: 0,
+                    logging: false
+                },
+
+                jsPDF: {
+                    unit: "mm",
+                    format: "a4",
+                    orientation: "portrait"
+                },
+
+                pagebreak: {
+                    mode: ["css", "legacy"],
+                    avoid: [
+                        ".section-heading",
+                        ".experience-item",
+                        ".education-item",
+                        ".entry-heading",
+                        ".education-marker"
+                    ]
+                }
+            };
+
+            await html2pdf()
+                .set(opciones)
+                .from(cv)
+                .save();
+
+            if (estado) {
+                estado.textContent = "¡Tu PDF se generó correctamente!";
+            }
+        } catch (error) {
+            console.error("Error al generar el PDF:", error);
+
+            if (estado) {
+                estado.textContent =
+                    "No se pudo generar el PDF. Verifica que la foto cargue correctamente e inténtalo de nuevo.";
+            }
+        } finally {
+            // Restaurar la apariencia original de la página.
+            if (fotoContainer) {
+                fotoContainer.style.display = displayOriginal;
+            }
+
+            if (!yaTeniaClase) {
+                document.body.classList.remove("pdf-export");
+            }
+
+            btn.innerHTML = textoOriginal;
+            btn.disabled = false;
+
+            // Quitar el mensaje después de unos segundos.
+            setTimeout(() => {
+                if (estado) estado.textContent = "";
+            }, 4000);
+        }
+    });
 });
