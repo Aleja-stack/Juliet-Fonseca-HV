@@ -106,16 +106,20 @@ window.addEventListener("load", () => {
                     orientation: "portrait"
                 },
 
+               
                 pagebreak: {
                     mode: ["css", "legacy"],
+                    before: [],
+                    after: [],
                     avoid: [
-                        ".section-heading",
                         ".experience-item",
                         ".education-item",
-                        ".entry-heading",
-                        ".education-marker"
+                        ".cv-item",
+                        ".timeline-item",
+                        ".education-card"
                     ]
                 }
+
             };
 
             await html2pdf()
