@@ -510,14 +510,14 @@ body.pdf-export #hoja-vida .cv-footer {
 }
 
 @media print {
-  #hoja-vida h2 {
+  #hoja-vida {
     break-after: avoid;
     page-break-after: avoid;
   }
 
-  #hoja-vida h2 + .experience-item,
-  #hoja-vida h2 + .cv-item,
-  #hoja-vida h2 + .timeline-item {
+  #hoja-vida + .experience-item,
+  #hoja-vida + .cv-item,
+  #hoja-vida + .timeline-item {
     break-before: avoid;
     page-break-before: avoid;
   }
