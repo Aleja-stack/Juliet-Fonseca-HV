@@ -476,3 +476,35 @@ body.pdf-export #hoja-vida .cv-footer {
         font-size: 0.94rem;
     }
 }
+
+
+/* ===== AJUSTES PARA LA EXPORTACIÓN A PDF ===== */
+
+/* Evitar que un cargo laboral quede dividido entre páginas */
+.pdf-export .experience-item {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+}
+
+/* Mantener juntos el título de la sección y su contenido inmediato */
+.pdf-export .section-heading {
+    break-after: avoid;
+    page-break-after: avoid;
+}
+
+/* Evitar que los estudios se dividan entre páginas */
+.pdf-export .education-item {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+}
+
+/* Evitar espacios verticales excesivos al exportar */
+.pdf-export .experience-item {
+    margin-bottom: 14px;
+}
+
+/* Reducir el espacio superior de las secciones solo en el PDF */
+.pdf-export .cv-section {
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
